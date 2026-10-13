@@ -1,52 +1,28 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { images } from "@/data/images";
+import { school } from "@/data/site";
 
-// Uses /public/images/logo/rps-logo.png when it exists, otherwise draws a
-// text logo in the RPS colours.
+// School crest from /public/images/logo/gurukul-logo.jpg with the name beside it.
 export default function Logo({ light = false, compact = false }) {
-  const [failed, setFailed] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const img = ref.current;
-    if (img && img.complete && img.naturalWidth === 0) setFailed(true);
-  }, []);
-
   return (
-    <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="RPS Group of Schools — Home">
-      {!failed ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          ref={ref}
-          src={images.logo}
-          alt="RPS Group of Schools"
-          onError={() => setFailed(true)}
-          className={`${compact ? "h-11" : "h-14"} w-auto object-contain transition-all`}
-        />
-      ) : (
-        <>
-          {/* Crest-style monogram */}
-          <span
-            className={`relative grid ${compact ? "h-11 w-11" : "h-14 w-14"} place-items-center rounded-full border-2 border-gold-500 transition-all ${
-              light ? "bg-navy-800" : "bg-navy-900"
-            }`}
-          >
-            <span className="absolute inset-[3px] rounded-full border border-gold-500/40" />
-            <span className={`font-display ${compact ? "text-sm" : "text-base"} font-semibold tracking-wider text-white`}>RPS</span>
-          </span>
-          <span className={`leading-none ${compact ? "" : "border-l border-line pl-3"}`}>
-            <span className={`block font-display ${compact ? "text-xl" : "text-2xl"} font-semibold tracking-wide ${light ? "text-white" : "text-navy-900"}`}>
-              RPS
-            </span>
-            <span className={`mt-1 block text-[9.5px] font-semibold uppercase tracking-[0.3em] ${light ? "text-gold-400" : "text-gold-500"}`}>
-              Group of Schools
-            </span>
-          </span>
-        </>
-      )}
+    <Link href="/" className="flex shrink-0 items-center gap-3" aria-label={`${school.name}, ${school.place} — Home`}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={images.logo}
+        alt={`${school.name} logo`}
+        className={`${compact ? "h-12 w-12" : "h-16 w-16"} rounded-full object-contain transition-all ${light ? "bg-white p-0.5" : ""}`}
+      />
+      <span className={`leading-none ${compact ? "" : "border-l border-line pl-3"}`}>
+        <span className={`hidden text-[9.5px] font-semibold uppercase tracking-[0.18em] sm:block ${light ? "text-white/60" : "text-muted"}`}>
+          Shri Lajja Ram Bashesar Dass
+        </span>
+        <span className={`mt-1 block font-display ${compact ? "text-lg" : "text-xl sm:text-2xl"} font-semibold ${light ? "text-white" : "text-navy-900"}`}>
+          {school.name}
+        </span>
+        <span className={`mt-1 block text-[9.5px] font-semibold uppercase tracking-[0.3em] ${light ? "text-gold-400" : "text-gold-500"}`}>
+          {school.place} • Est. {school.founded}
+        </span>
+      </span>
     </Link>
   );
 }

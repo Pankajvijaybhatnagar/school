@@ -5,7 +5,7 @@ import ParentLoginCard from "@/components/misc/ParentLoginCard";
 
 export const metadata = {
   title: "Parent Login",
-  description: "Parent portal login for RPS Group of Schools — attendance, results, fees and school notices.",
+  description: "Parent portal login for Gurukul Vidyapeeth, Jind — attendance, results, fees and school notices.",
 };
 
 const perks = [
@@ -18,14 +18,14 @@ const perks = [
 export default function ParentLoginPage() {
   return (
     <>
-      <PageHero title="Parent" highlight="Login" subtitle="Stay connected with your child's progress at RPS." crumbs={[{ label: "Parent Login" }]} />
+      <PageHero title="Parent" highlight="Login" subtitle="Stay connected with your child's progress at Gurukul Vidyapeeth." crumbs={[{ label: "Parent Login" }]} />
       <section className="bg-cream py-20">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <Reveal from="right">
             <h2 className="text-3xl font-semibold text-navy-900 sm:text-4xl">
               Everything about your child, <span className="text-gradient">in one place.</span>
             </h2>
-            <p className="mt-4 leading-8 text-muted">Log in with the Admission No. / Username and password shared by your campus office.</p>
+            <p className="mt-4 leading-8 text-muted">Log in with the Admission No. / Username and password shared by the school office.</p>
             <div className="mt-8 grid grid-cols-2 gap-4">
               {perks.map((p) => (
                 <div key={p.label} className="flex items-center gap-3 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
@@ -40,7 +40,7 @@ export default function ParentLoginPage() {
               <div className="absolute -inset-3 border border-gold-500/40" />
               <div className="relative rounded-2xl bg-white p-8 shadow-xl sm:p-10">
                 <h3 className="text-2xl font-semibold text-navy-900">Welcome Back</h3>
-                <p className="mb-6 mt-1 text-sm text-muted">Sign in to the RPS parent portal</p>
+                <p className="mb-6 mt-1 text-sm text-muted">Sign in to the parent portal</p>
                 <ParentLoginCard />
               </div>
             </div>

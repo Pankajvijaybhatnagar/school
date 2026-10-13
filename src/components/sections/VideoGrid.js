@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Play, X } from "lucide-react";
-import { videos, social } from "@/data/site";
+import { videos } from "@/data/site";
 import SmartImage from "@/components/ui/SmartImage";
 import { YoutubeIcon } from "@/components/ui/SocialIcons";
 
@@ -13,7 +13,7 @@ function Card({ v, big = false, onOpen }) {
       onClick={() => onOpen(v)}
       className={`group relative block w-full overflow-hidden rounded-3xl text-left shadow-xl shadow-navy-900/10 ${big ? "aspect-video lg:aspect-auto lg:h-full" : "aspect-video"}`}
     >
-      <SmartImage src={v.image} alt={v.title} className="absolute inset-0 transition duration-700 group-hover:scale-110" variant="navy" />
+      <SmartImage src={v.image || (v.id && `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`)} alt={v.title} className="absolute inset-0 transition duration-700 group-hover:scale-110" variant="navy" />
       <div className="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-950/30 to-transparent" />
       <span className="absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/70 bg-navy-950/30 text-white backdrop-blur-sm transition duration-300 group-hover:border-gold-400 group-hover:bg-gold-500">
         <Play className="ml-1 h-6 w-6 fill-white" />
@@ -37,13 +37,15 @@ export default function VideoGrid({ items = videos, featured = true }) {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  const single = items.length === 1;
+  const showFeatured = featured && !single;
   const [first, ...rest] = items;
-  const list = featured ? rest : items;
+  const list = showFeatured ? rest : items;
 
 
   return (
     <>
-      {featured ? (
+      {showFeatured ? (
         <div className="grid gap-5 lg:grid-cols-2">
           <Card v={first} big onOpen={setActive} />
           <div className="grid gap-5 sm:grid-cols-2">
@@ -51,7 +53,7 @@ export default function VideoGrid({ items = videos, featured = true }) {
           </div>
         </div>
       ) : (
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className={single ? "mx-auto max-w-4xl" : "grid gap-5 sm:grid-cols-2 lg:grid-cols-3"}>
           {list.map((v) => <Card key={v.title} v={v} onOpen={setActive} />)}
         </div>
       )}
@@ -88,7 +90,7 @@ export default function VideoGrid({ items = videos, featured = true }) {
                   <div className="flex h-full flex-col items-center justify-center gap-4 p-6 text-center text-white">
                     <YoutubeIcon className="h-16 w-16 text-gold-400" />
                     <p className="text-xl font-bold">{active.title}</p>
-                    <a href={social.youtube} target="_blank" rel="noopener noreferrer" className="rounded-md bg-gold-400 px-6 py-3 font-bold">
+                    <a href={`https://www.youtube.com/watch?v=${active.id}`} target="_blank" rel="noopener noreferrer" className="rounded-md bg-gold-400 px-6 py-3 font-bold">
                       Watch on YouTube
                     </a>
                   </div>

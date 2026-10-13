@@ -1,19 +1,19 @@
-import { Mail, MessageCircle, PhoneCall } from "lucide-react";
+import { Mail, MapPin, MessageCircle, PhoneCall } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
-import ContactTabs from "@/components/misc/ContactTabs";
 import EnquiryForm from "@/components/sections/EnquiryForm";
-import { primaryContact } from "@/data/site";
+import MapEmbed from "@/components/sections/MapEmbed";
+import { primaryContact, school } from "@/data/site";
 
 export const metadata = {
   title: "Contact Us",
-  description: "Contact RPS Group of Schools — Mahendergarh, Rewari and Gurugram Sector 89 campus addresses, phone numbers, emails and maps.",
+  description: "Contact Gurukul Vidyapeeth, Gohana Road, Pandu Pindara, Jind, Haryana 126102 — 90851-78001, jindgurukul@gmail.com.",
 };
 
 const quick = [
-  { icon: PhoneCall, label: "Call Us", value: primaryContact.phone, href: `tel:${primaryContact.phone}` },
-  { icon: MessageCircle, label: "Admission Enquiry", value: primaryContact.admissionPhone, href: `https://wa.me/${primaryContact.whatsapp}` },
+  { icon: PhoneCall, label: "Call Us", value: primaryContact.phone, href: `tel:${primaryContact.tel}` },
+  { icon: MessageCircle, label: "WhatsApp", value: primaryContact.phone, href: `https://wa.me/${primaryContact.whatsapp}` },
   { icon: Mail, label: "Email Us", value: primaryContact.email, href: `mailto:${primaryContact.email}` },
 ];
 
@@ -23,7 +23,7 @@ export default function ContactPage() {
       <PageHero
         title="Contact"
         highlight="Us"
-        subtitle="We'd love to hear from you. Reach any RPS campus or send us an enquiry."
+        subtitle="We'd love to hear from you. Visit us, call us or send an enquiry."
         crumbs={[{ label: "Contact" }]}
       />
 
@@ -47,8 +47,27 @@ export default function ContactPage() {
 
       <section className="bg-cream py-20">
         <div className="container-x">
-          <SectionHeading eyebrow="Our Campuses" title="Find a" highlight="Campus" />
-          <ContactTabs />
+          <SectionHeading eyebrow="Visit Us" title="Find" highlight="Our School" />
+          <div className="grid gap-6 lg:grid-cols-5">
+            <Reveal className="relative overflow-hidden rounded-3xl bg-mesh p-8 text-white lg:col-span-2">
+              <div className="absolute inset-0 bg-dots opacity-40" />
+              <div className="relative">
+                <p className="text-xs font-bold uppercase tracking-widest text-gold-400">{school.place}</p>
+                <h3 className="mt-1 text-2xl font-semibold">{school.fullName}</h3>
+                <p className="mt-1 text-sm text-white/70">{school.board} • Affiliation No. {school.affiliationNo} • School Code {school.schoolCode}</p>
+                <ul className="mt-6 space-y-4 text-sm">
+                  <li className="flex gap-3">
+                    <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-gold-400" />
+                    <span>{school.addressLines.map((l) => <span key={l} className="block">{l}</span>)}</span>
+                  </li>
+                  <li className="flex items-center gap-3"><PhoneCall className="h-5 w-5 shrink-0 text-gold-400" /><a href={`tel:${primaryContact.tel}`} className="font-bold hover:text-gold-400">{primaryContact.phone}</a></li>
+                  <li className="flex items-center gap-3"><Mail className="h-5 w-5 shrink-0 text-gold-400" /><a href={`mailto:${primaryContact.email}`} className="hover:text-gold-400">{primaryContact.email}</a></li>
+                </ul>
+                <span className="mt-6 inline-block rounded-md bg-gold-500 px-4 py-1.5 text-xs font-bold text-navy-950">Admissions Open 2027-28</span>
+              </div>
+            </Reveal>
+            <MapEmbed query={school.mapQuery} title={`${school.fullName} map`} className="h-[420px] lg:col-span-3" />
+          </div>
         </div>
       </section>
 

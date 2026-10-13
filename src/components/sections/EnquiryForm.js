@@ -3,16 +3,13 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
-import { campuses, otherCampuses, primaryContact } from "@/data/site";
+import { primaryContact } from "@/data/site";
 import { WhatsappIcon } from "@/components/ui/SocialIcons";
 
-const classes = ["Nursery", "LKG", "UKG", ...Array.from({ length: 12 }, (_, i) => `Class ${i + 1}`)];
-const campusOptions = [
-  ...campuses.map((c) => `${c.name}, ${c.city === "Gurugram" ? "Sector 89, Gurugram" : c.city}`),
-  ...otherCampuses.map((c) => c.name),
-];
+const classes = ["Nursery", "LKG", "UKG", ...Array.from({ length: 10 }, (_, i) => `Class ${i + 1}`), "Class 11", "Class 11 (Science)", "Class 12", "Class 12 (Science)"];
+const mediums = ["Hindi Medium", "English Medium"];
 
-const initial = { student: "", parent: "", phone: "", email: "", campus: "", grade: "", message: "" };
+const initial = { student: "", parent: "", phone: "", email: "", medium: "", grade: "", message: "" };
 
 function validate(v) {
   const e = {};
@@ -20,13 +17,13 @@ function validate(v) {
   if (v.parent.trim().length < 2) e.parent = "Please enter the parent's name";
   if (!/^[6-9]\d{9}$/.test(v.phone.replace(/\D/g, "").slice(-10))) e.phone = "Enter a valid 10-digit mobile number";
   if (v.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) e.email = "Enter a valid email address";
-  if (!v.campus) e.campus = "Please choose a campus";
+  if (!v.medium) e.medium = "Please choose a medium";
   if (!v.grade) e.grade = "Please choose a class";
   return e;
 }
 
-export default function EnquiryForm({ compact = false, onDone, defaultCampus = "" }) {
-  const [values, setValues] = useState({ ...initial, campus: defaultCampus });
+export default function EnquiryForm({ compact = false, onDone }) {
+  const [values, setValues] = useState(initial);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle"); // idle | sending | done | error
 
@@ -56,7 +53,7 @@ export default function EnquiryForm({ compact = false, onDone, defaultCampus = "
   }
 
   const whatsappText = encodeURIComponent(
-    `Admission Enquiry\nStudent: ${values.student}\nParent: ${values.parent}\nPhone: ${values.phone}\nCampus: ${values.campus}\nClass: ${values.grade}\n${values.message}`
+    `Admission Enquiry\nStudent: ${values.student}\nParent: ${values.parent}\nPhone: ${values.phone}\nMedium: ${values.medium}\nClass: ${values.grade}\n${values.message}`
   );
 
   const field = (k) =>
@@ -109,11 +106,11 @@ export default function EnquiryForm({ compact = false, onDone, defaultCampus = "
             {err("email")}
           </div>
           <div>
-            <select className={field("campus")} value={values.campus} onChange={set("campus")} aria-label="Campus">
-              <option value="">Select Campus *</option>
-              {campusOptions.map((c) => <option key={c}>{c}</option>)}
+            <select className={field("medium")} value={values.medium} onChange={set("medium")} aria-label="Medium">
+              <option value="">Select Medium *</option>
+              {mediums.map((c) => <option key={c}>{c}</option>)}
             </select>
-            {err("campus")}
+            {err("medium")}
           </div>
           <div>
             <select className={field("grade")} value={values.grade} onChange={set("grade")} aria-label="Class">
@@ -134,7 +131,7 @@ export default function EnquiryForm({ compact = false, onDone, defaultCampus = "
           )}
           {status === "error" && (
             <p className="text-sm font-medium text-brand-600 sm:col-span-2">
-              Something went wrong. Please call us at {primaryContact.admissionPhone}.
+              Something went wrong. Please call us at {primaryContact.phone}.
             </p>
           )}
           <button

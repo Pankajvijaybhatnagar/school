@@ -16,7 +16,7 @@ export default function NotFound() {
         <p className="mx-auto mt-4 max-w-xl text-white/75">The page you are looking for doesn&apos;t exist or has been moved. Let&apos;s get you back on track.</p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           <Button href="/" variant="gold"><ArrowLeft className="h-4 w-4" /> Back to Home</Button>
-          <Button href={`tel:${primaryContact.phone}`} variant="outline"><Phone className="h-4 w-4" /> {primaryContact.phone}</Button>
+          <Button href={`tel:${primaryContact.tel}`} variant="outline"><Phone className="h-4 w-4" /> {primaryContact.phone}</Button>
         </div>
       </div>
     </section>

@@ -6,21 +6,20 @@ import CareerForm from "@/components/misc/CareerForm";
 
 export const metadata = {
   title: "Career With Us",
-  description: "Join the RPS family of Gurus. Apply for teaching (PGT, TGT, PRT), sports and administrative roles.",
+  description: "Join Gurukul Vidyapeeth, Jind. Apply for teaching (PGT, TGT, PRT) and administrative roles.",
 };
 
 const perks = [
-  { icon: TrendingUp, title: "Grow With a Legacy", text: "Be part of an institution with 28 years of landmark contribution to education." },
+  { icon: TrendingUp, title: "Grow With a Legacy", text: "Be part of an institution rooted in the Rishikul tradition of Shri Lajja Ram Sanskrit Mahavidyalaya (1968)." },
   { icon: GraduationCap, title: "Professional Development", text: "Continuous training, workshops and opportunities to upskill." },
   { icon: HeartHandshake, title: "Supportive Culture", text: "A collaborative community of educators who share a passion for teaching." },
-  { icon: Sprout, title: "Green Campuses", text: "Work in spacious campuses in the lap of nature with modern facilities." },
+  { icon: Sprout, title: "Values-based Education", text: "Help children grow with sanskaras, discipline and love for the nation alongside modern education." },
 ];
 
 const roles = [
   { title: "PGT", desc: "Post Graduate Teachers for Classes XI–XII" },
   { title: "TGT", desc: "Trained Graduate Teachers for Classes VI–X" },
   { title: "PRT", desc: "Primary Teachers for Classes I–V" },
-  { title: "Sports Coach", desc: "Coaches for athletics, games and swimming" },
   { title: "Administration", desc: "Office, accounts, admissions and transport staff" },
 ];
 
@@ -30,13 +29,13 @@ export default function CareersPage() {
       <PageHero
         title="Career"
         highlight="With Us"
-        subtitle="Shape the leaders of tomorrow. Join the RPS family of passionate Gurus."
+        subtitle="Shape the future of young learners. Join the Gurukul Vidyapeeth family."
         crumbs={[{ label: "Career With Us" }]}
       />
 
       <section className="py-20">
         <div className="container-x">
-          <SectionHeading eyebrow="Why Work at RPS" title="Teach. Inspire." highlight="Grow." />
+          <SectionHeading eyebrow="Why Work at Gurukul" title="Teach. Inspire." highlight="Grow." />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {perks.map((p, i) => (
               <Reveal key={p.title} delay={i * 0.08}>
@@ -55,7 +54,7 @@ export default function CareersPage() {
         <div className="container-x grid gap-10 lg:grid-cols-5">
           <Reveal from="right" className="lg:col-span-2">
             <SectionHeading eyebrow="Open Positions" title="We Are" highlight="Hiring" align="left" />
-            <p className="-mt-6 mb-6 text-sm text-muted">Current openings may vary by campus. Apply with your resume and we&apos;ll match you with the right role.</p>
+            <p className="-mt-6 mb-6 text-sm text-muted">Current openings may vary. Apply with your resume and we&apos;ll match you with the right role.</p>
             <ul className="space-y-3">
               {roles.map((r) => (
                 <li key={r.title} className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">

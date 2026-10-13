@@ -3,7 +3,7 @@ import DownloadsList from "@/components/misc/DownloadsList";
 
 export const metadata = {
   title: "Downloads",
-  description: "Download the NEET 2026 Paper, General Information, Prospectus, Fee Structure, Transfer Certificate and Mandatory Disclosure documents of RPS.",
+  description: "Download the Fee Structure 2027-28, CBSE affiliation, society registration, NOC, RTE recognition and fire safety documents of Gurukul Vidyapeeth, Jind.",
 };
 
 export default function DownloadsPage() {
@@ -12,7 +12,7 @@ export default function DownloadsPage() {
       <PageHero
         title="Downloads &"
         highlight="Documents"
-        subtitle="Prospectus, fee structure, TC, NEET 2026 paper and more — all in one place."
+        subtitle="Fee structure, CBSE affiliation and school certificates — all in one place."
         crumbs={[{ label: "Downloads" }]}
       />
       <section className="bg-cream py-20">

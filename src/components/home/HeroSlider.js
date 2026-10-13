@@ -3,123 +3,118 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight, Trophy, Stethoscope, Sparkles, Landmark } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Trophy, Sparkles, Landmark, Flame } from "lucide-react";
 import SmartImage from "@/components/ui/SmartImage";
 import { buttonBase } from "@/components/ui/Button";
-import { cbseX2026, neet2026 } from "@/data/site";
+import { boardResults, feeStructure, school } from "@/data/site";
 import { openEnquiry } from "@/components/layout/EnquiryModal";
 
 const DURATION = 7000;
 const EASE = [0.22, 0.7, 0.2, 1];
 
+const latestX = boardResults.X.at(-1);
+const latestXII = boardResults.XII.at(-1);
+
 const slides = [
   {
-    key: "cbse",
-    tab: "CBSE Result 2026",
-    image: "hero1",
-    icon: Trophy,
-    eyebrow: "CBSE Board Result 2026",
+    key: "welcome",
+    tab: "Gurukul Vidyapeeth",
+    image: "logo",
+    contain: true,
+    icon: Flame,
+    eyebrow: "Shri Lajja Ram Bashesar Dass",
     title: (
       <>
-        Class X Soars to <em className="font-medium text-gold-400">New Heights</em>
+        Gurukul <em className="font-medium text-gold-400">Vidyapeeth</em>, Jind
       </>
     ),
-    text: "Numbers that speak louder than words — 64 students scored 99% & above and 1,668 students scored 90% & above.",
-    cta: { label: "View Results", href: "/achievements#cbse" },
-    card: { value: `${cbseX2026.topScore}%`, label: "Highest Score", sub: "CBSE Class X 2026 — five RPSians" },
+    text: `${school.tagline} — CBSE affiliated, ${school.classes}, ${school.medium}.`,
+    cta: { label: "About Us", href: "/about" },
+    card: { value: school.motto, hindi: true, label: "Our Motto", sub: `“${school.mottoMeaning}” — ${school.mottoSource}` },
   },
   {
-    key: "neet",
-    tab: "NEET Achievers",
-    image: "hero2",
-    icon: Stethoscope,
-    eyebrow: "NEET Achievers 2026",
+    key: "results",
+    tab: "Board Results",
+    image: "logo",
+    contain: true,
+    icon: Trophy,
+    eyebrow: `CBSE Board Results ${latestX.year}`,
     title: (
       <>
-        <em className="font-medium text-gold-400">140 RPSians</em> Scored 500+ in NEET
+        <em className="font-medium text-gold-400">100%</em> Results in Class X &amp; XII
       </>
     ),
-    text: "Another wave of excellence! Kavya Yadav leads with 680 marks. RPS — a powerhouse of medical aspirants.",
-    cta: { label: "See All Achievers", href: "/achievements#neet" },
-    card: { value: "680", unit: "/720", label: "Kavya Yadav", sub: "NEET 2026 — Top Scorer" },
+    text: `All ${latestX.registered} students of Class X and all ${latestXII.registered} students of Class XII passed the CBSE Board Examination ${latestX.year}.`,
+    cta: { label: "View Results", href: "/achievements" },
+    card: { value: "100%", label: "Class X & XII", sub: `CBSE Board Examination ${latestX.year}` },
   },
   {
     key: "admission",
     tab: "Admissions Open",
-    image: "hero3",
+    image: "feeStructure",
+    contain: true,
     icon: Sparkles,
     eyebrow: "Admissions Open",
     title: (
       <>
-        Admissions Open <em className="font-medium text-gold-400">2026-27</em>
+        Admissions Open <em className="font-medium text-gold-400">{feeStructure.session}</em>
       </>
     ),
-    text: "Session 2027-28 admissions are also open at RPS International School, Sector 89, Gurugram — a Cambridge International School.",
+    text: "Nursery to Class XII in Hindi and English medium, including the Science stream in Classes XI and XII.",
     cta: { label: "Apply Now", enquiry: true },
-    card: { value: "2026-27", label: "Now Enrolling", sub: "All campuses • 2027-28 at Sector 89" },
+    card: { value: "₹500", label: "Registration", sub: `For every class • Session ${feeStructure.session}` },
   },
   {
     key: "legacy",
     tab: "Our Legacy",
-    image: "hero4",
+    image: "logo",
+    contain: true,
     icon: Landmark,
-    eyebrow: "28 Years of Excellence in Education",
+    eyebrow: "Rishikul Tradition Since 1968",
     title: (
       <>
-        Creating Leaders for a <em className="font-medium text-gold-400">Better Tomorrow</em>
+        Rishikul Sanskaras, <em className="font-medium text-gold-400">Modern Education</em>
       </>
     ),
-    text: "From one school in Mahendergarh in 1998 to 27 institutes, 55,000+ pupils and a family of RPSians across Haryana.",
-    cta: { label: "Our Story", href: "/about" },
-    card: { value: "1998", label: "Founded", sub: "Mahendergarh — 27 institutes today" },
+    text: "Rooted in Shri Lajja Ram Sanskrit Mahavidyalaya (1968), Gurukul Vidyapeeth was founded on Vasant Panchami, 2 February 2006.",
+    cta: { label: "Our Story", href: "/about#history" },
+    card: { value: "1968", label: "Our Roots", sub: "Shri Lajja Ram Sanskrit Mahavidyalaya, Tirth Pandu-Pindara" },
   },
 ];
 
+const CHIPS = {
+  welcome: ["CBSE", "Hindi Medium", "English Medium", "Nursery – XII"],
+  admission: ["Nursery", "LKG", "UKG", "I – X", "XI – XII", "Science"],
+};
+
 /* Slide-specific detail row under the buttons. */
 function Extra({ type }) {
-  if (type === "cbse") {
+  if (type === "results") {
+    const rows = [
+      ...boardResults.X.map((r) => ({ ...r, cls: "X" })),
+      ...boardResults.XII.map((r) => ({ ...r, cls: "XII" })),
+    ];
     return (
       <div className="grid max-w-2xl grid-cols-3 border border-white/15 bg-navy-950/40 backdrop-blur-sm sm:grid-cols-6">
-        {cbseX2026.bands.map((b, i) => (
+        {rows.map((b, i) => (
           <motion.div
-            key={b.pct}
+            key={`${b.cls}-${b.year}`}
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 + i * 0.07, ease: EASE }}
             className="border-white/15 px-2 py-3 text-center [&:not(:last-child)]:border-r max-sm:[&:nth-child(-n+3)]:border-b max-sm:[&:nth-child(3)]:border-r-0"
           >
-            <p className="font-display text-2xl font-semibold leading-none text-white">{b.students.toLocaleString("en-IN")}</p>
-            <p className="mt-1.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400">{b.pct}% &amp; above</p>
+            <p className="font-display text-2xl font-semibold leading-none text-white">{b.pct}%</p>
+            <p className="mt-1.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400">Class {b.cls} • {b.year}</p>
           </motion.div>
         ))}
       </div>
     );
   }
-  if (type === "neet") {
-    return (
-      <div className="flex flex-wrap gap-x-8 gap-y-4 border-t border-white/15 pt-6">
-        {neet2026.achievers.slice(0, 3).map(([name, , marks], i) => (
-          <motion.div
-            key={name}
-            initial={{ opacity: 0, x: -16 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.7 + i * 0.1, ease: EASE }}
-            className="flex items-center gap-3"
-          >
-            <span className="font-display text-3xl font-semibold text-gold-400">{marks}</span>
-            <span>
-              <span className="block text-sm font-semibold uppercase tracking-wider text-white">{name}</span>
-              <span className="block text-xs text-white/60">Rank {i + 1} • out of 720</span>
-            </span>
-          </motion.div>
-        ))}
-      </div>
-    );
-  }
-  if (type === "admission") {
+  if (CHIPS[type]) {
     return (
       <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/15 pt-6">
-        {["IIT", "NEET", "NDA", "NTSE", "CLAT", "CPT"].map((s, i) => (
+        {CHIPS[type].map((s, i) => (
           <motion.span
             key={s}
             initial={{ opacity: 0, y: 10 }}
@@ -136,9 +131,9 @@ function Extra({ type }) {
   return (
     <div className="grid max-w-md grid-cols-3 divide-x divide-white/15 border-t border-white/15 pt-6">
       {[
-        ["28", "Years"],
-        ["55K+", "Pupils"],
-        ["27", "Institutes"],
+        ["1968", "Mahavidyalaya"],
+        ["2006", "Gurukul Founded"],
+        ["2009", "School Opened"],
       ].map(([v, l], i) => (
         <motion.div
           key={l}
@@ -173,14 +168,14 @@ function Seal() {
         <text className="fill-gold-400" style={{ fontSize: 11.5, fontWeight: 600 }}>
           {/* textLength = circumference (2πr), so the words wrap the ring exactly once */}
           <textPath href="#seal-path" textLength="463" lengthAdjust="spacing">
-            EXCELLENCE THROUGH FAITH &amp; COMMITMENT • SINCE 1998 •
+            GURUKUL VIDYAPEETH • JIND • SINCE 2006 • CBSE •
           </textPath>
         </text>
       </motion.svg>
       <div className="absolute inset-[30px] grid place-items-center rounded-full border border-gold-500/50 text-center">
         <span>
-          <span className="block font-display text-3xl font-semibold leading-none text-white">28</span>
-          <span className="mt-1 block text-[9px] font-semibold uppercase tracking-[0.25em] text-gold-400">Years</span>
+          <span className="block text-[9px] font-semibold uppercase tracking-[0.25em] text-gold-400">Est.</span>
+          <span className="mt-1 block font-display text-2xl font-semibold leading-none text-white">2006</span>
         </span>
       </div>
     </div>
@@ -246,7 +241,7 @@ export default function HeroSlider() {
           exit={{ opacity: 0 }}
           transition={{ duration: 1.1 }}
         >
-          <SmartImage src={s.image} alt="" className="absolute inset-0 scale-110 blur-[2px]" variant="navy" priority />
+          {!s.contain && <SmartImage src={s.image} alt="" className="absolute inset-0 scale-110 blur-[2px]" variant="navy" priority />}
           <div className="absolute inset-0 bg-navy-950/80" />
         </motion.div>
       </AnimatePresence>
@@ -332,7 +327,7 @@ export default function HeroSlider() {
                   exit={{ opacity: 0 }}
                   transition={{ opacity: { duration: 0.9 }, scale: { duration: DURATION / 1000 + 1, ease: "linear" } }}
                 >
-                  <SmartImage src={s.image} alt={s.eyebrow} label="Hero Photo" variant="light" className="absolute inset-0" priority />
+                  <SmartImage src={s.image} alt={s.eyebrow} label="Hero Photo" variant="light" className="absolute inset-0" imgClassName={s.contain ? "!object-contain px-8 pb-6 pt-16" : ""} priority />
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -353,7 +348,7 @@ export default function HeroSlider() {
                 className="absolute -left-6 bottom-12 w-60 xl:-left-14 border-t-2 border-gold-500 bg-white p-5 text-navy-900 shadow-2xl shadow-navy-950/40"
               >
                 <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-gold-500">{s.card.label}</p>
-                <p className="mt-2 font-display text-4xl font-semibold leading-none">
+                <p className={`mt-2 leading-none ${s.card.hindi ? "font-hindi text-3xl" : "font-display text-4xl font-semibold"}`}>
                   {s.card.value}
                   {s.card.unit && <span className="text-lg text-muted">{s.card.unit}</span>}
                 </p>

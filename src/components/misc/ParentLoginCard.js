@@ -3,11 +3,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { Eye, EyeOff, Info, Lock, LogIn, School, User } from "lucide-react";
-import { campuses } from "@/data/site";
+import { Eye, EyeOff, Info, Lock, LogIn, User } from "lucide-react";
 
 export default function ParentLoginCard() {
-  const [v, setV] = useState({ user: "", pass: "", campus: "" });
+  const [v, setV] = useState({ user: "", pass: "" });
   const [errors, setErrors] = useState({});
   const [show, setShow] = useState(false);
   const [msg, setMsg] = useState(false);
@@ -20,7 +19,6 @@ export default function ParentLoginCard() {
   function submit(e) {
     e.preventDefault();
     const er = {};
-    if (!v.campus) er.campus = "Please select your campus";
     if (v.user.trim().length < 3) er.user = "Enter your Admission No. / Username";
     if (v.pass.length < 4) er.pass = "Enter your password";
     setErrors(er);
@@ -35,16 +33,6 @@ export default function ParentLoginCard() {
 
   return (
     <form onSubmit={submit} noValidate className="space-y-4">
-      <div>
-        <div className={wrap("campus")}>
-          <School className="h-5 w-5 text-slate-400" />
-          <select value={v.campus} onChange={set("campus")} className="w-full bg-transparent py-3.5 text-sm text-navy-900 outline-none" aria-label="Campus">
-            <option value="">Select Campus</option>
-            {campuses.map((c) => <option key={c.slug} value={c.slug}>{c.name}, {c.city}</option>)}
-          </select>
-        </div>
-        {err("campus")}
-      </div>
       <div>
         <div className={wrap("user")}>
           <User className="h-5 w-5 text-slate-400" />
@@ -77,7 +65,7 @@ export default function ParentLoginCard() {
             exit={{ opacity: 0 }}
             className="flex items-start gap-2 rounded-xl bg-gold-100 p-4 text-sm text-navy-900"
           >
-            <Info className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" /> Parent portal will be linked here (CampusPro).
+            <Info className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" /> The online parent portal will be linked here soon. Please contact the school office for details.
           </motion.p>
         )}
       </AnimatePresence>

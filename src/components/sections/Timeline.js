@@ -17,7 +17,7 @@ export default function Timeline({ light = false }) {
           viewport={{ once: true }}
           transition={{ duration: 2, ease: "easeInOut" }}
         />
-        <div className="relative grid grid-cols-7">
+        <div className="relative grid" style={{ gridTemplateColumns: `repeat(${timeline.length}, minmax(0, 1fr))` }}>
           {timeline.map((t, i) => {
             const top = i % 2 === 0;
             return (

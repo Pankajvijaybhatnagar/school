@@ -42,7 +42,7 @@ export default function DownloadsList() {
                 <span className="rounded-md bg-gold-100 px-3 py-1 text-xs font-bold text-navy-900">{d.category}</span>
               </div>
               <h3 className="mt-5 text-lg font-semibold text-navy-900">{d.title}</h3>
-              <p className="text-xs font-semibold uppercase tracking-wider text-muted">PDF Document</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted">{d.type || "PDF"} Document</p>
               <a
                 href={d.file}
                 target="_blank"

@@ -3,24 +3,17 @@ import { ArrowRight } from "lucide-react";
 import HeroSlider from "@/components/home/HeroSlider";
 import AwardsStrip from "@/components/home/AwardsStrip";
 import Welcome from "@/components/home/Welcome";
-import NewsCalendar from "@/components/home/NewsCalendar";
-import Streams from "@/components/home/Streams";
 import AdmissionBanner from "@/components/home/AdmissionBanner";
-import LifeAtRps from "@/components/home/LifeAtRps";
-import SocialFeeds from "@/components/home/SocialFeeds";
 import Ticker from "@/components/layout/Ticker";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
-import CbseResults from "@/components/sections/CbseResults";
-import NeetTable from "@/components/sections/NeetTable";
+import BoardResults from "@/components/sections/BoardResults";
+import LogoMeaning from "@/components/sections/LogoMeaning";
 import StatsBand from "@/components/sections/StatsBand";
-import PrincipalMessage from "@/components/sections/PrincipalMessage";
-import { MainCampuses, OtherCampuses } from "@/components/sections/CampusCards";
+import Leadership from "@/components/sections/Leadership";
 import Timeline from "@/components/sections/Timeline";
 import VideoGrid from "@/components/sections/VideoGrid";
 import GalleryGrid from "@/components/sections/GalleryGrid";
-import Testimonials from "@/components/sections/Testimonials";
-import { historyText } from "@/data/site";
 
 export default function Home() {
   return (
@@ -30,35 +23,34 @@ export default function Home() {
       <AwardsStrip />
       <Welcome />
 
-      {/* CBSE results */}
-      <section id="cbse" className="relative overflow-hidden bg-cream py-24">
+      {/* Board results */}
+      <section id="results" className="relative overflow-hidden bg-cream py-24">
         <div className="pointer-events-none absolute inset-0 bg-dots-dark" />
         <div className="container-x relative">
-          <SectionHeading eyebrow="CBSE Class X - 2026" title="Class X Soars to" highlight="New Heights" text="Numbers that speak louder than words — the record-breaking CBSE Board Result 2026 of the RPS Group of Schools." />
-          <CbseResults />
+          <SectionHeading eyebrow="CBSE Board Examination" title="Our Board" highlight="Results" text="Results of Class X and Class XII for the last three years — 100% in both classes in 2025-26." />
+          <BoardResults />
         </div>
       </section>
 
-      <Streams />
-
-      {/* NEET */}
-      <section id="neet" className="bg-white py-24">
+      {/* Logo & motto */}
+      <section className="bg-white py-24">
         <div className="container-x">
-          <SectionHeading eyebrow="RPS Group of Schools" title="NEET Achievers" highlight="2026" text="140 RPSians scored 500 & above. Meet our future doctors." />
-          <NeetTable limit={12} />
+          <SectionHeading eyebrow="Our Logo" title="Sun, Conch, Lamp &" highlight="Lotus" />
+          <LogoMeaning />
+          <div className="mt-12 text-center">
+            <Button href="/about#logo" variant="navy">Read the Full Meaning <ArrowRight className="h-4 w-4" /></Button>
+          </div>
         </div>
       </section>
 
-      <NewsCalendar />
       <AdmissionBanner />
-      <LifeAtRps />
       <StatsBand />
 
-      {/* Mentors */}
+      {/* Leadership */}
       <section className="bg-cream py-24">
         <div className="container-x">
-          <SectionHeading eyebrow="Meet Our Mentors" title="Guided by" highlight="Visionaries" />
-          <PrincipalMessage />
+          <SectionHeading eyebrow="Guiding Lights" title="Our" highlight="Leadership" />
+          <Leadership />
         </div>
       </section>
 
@@ -66,7 +58,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-navy-950 py-24 text-white">
         <div className="absolute inset-0 bg-dots opacity-30" />
         <div className="container-x relative">
-          <SectionHeading light eyebrow="Our History" title="History of" highlight="RPS" text={historyText} />
+          <SectionHeading light eyebrow="Our History" title="A Legacy Since" highlight="1968" text="From Shri Lajja Ram Sanskrit Mahavidyalaya in the Rishikul tradition to a CBSE Senior Secondary school offering modern education with sanskaras." />
           <Timeline light />
           <div className="mt-12 text-center">
             <Button href="/about#history" variant="gold">View More <ArrowRight className="h-4 w-4" /></Button>
@@ -74,28 +66,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Campuses */}
+      {/* Video */}
       <section className="bg-white py-24">
         <div className="container-x">
-          <SectionHeading eyebrow="RPS Campuses" title="One Family," highlight="Many Campuses" text="Find the RPS campus nearest to you." />
-          <MainCampuses />
-          <h3 className="mb-6 mt-16 text-center text-2xl font-semibold text-navy-900">Other Campuses</h3>
-          <OtherCampuses />
-        </div>
-      </section>
-
-      {/* Videos */}
-      <section className="bg-cream py-24">
-        <div className="container-x">
-          <SectionHeading eyebrow="Watch" title="Moments That" highlight="Make Us Proud" />
+          <SectionHeading eyebrow="Watch" title="Take a Tour of" highlight="Our School" text="The inspection video of the school covering its infrastructure." />
           <VideoGrid />
         </div>
       </section>
 
       {/* Gallery */}
-      <section className="bg-white py-24">
+      <section className="bg-cream py-24">
         <div className="container-x">
-          <SectionHeading eyebrow="Our Event Gallery" title="Life in" highlight="Pictures" />
+          <SectionHeading eyebrow="Our Gallery" title="Life in" highlight="Pictures" />
           <GalleryGrid limit={8} filters={false} />
           <div className="mt-10 text-center">
             <Link href="/gallery" className="inline-flex items-center gap-2 font-bold text-brand-600 hover:gap-3">
@@ -104,16 +86,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Testimonials */}
-      <section className="relative overflow-hidden bg-cream py-24">
-        <div className="container-x">
-          <SectionHeading eyebrow="Our Students Testimonials" title="Students' Say About" highlight="RPS" />
-          <Testimonials />
-        </div>
-      </section>
-
-      <SocialFeeds />
     </>
   );
 }

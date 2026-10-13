@@ -1,8 +1,9 @@
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone, ReceiptIndianRupee } from "lucide-react";
+import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
 import EnquiryButton from "@/components/sections/EnquiryButton";
-import { admissionOpen, primaryContact } from "@/data/site";
+import { feeStructure, primaryContact, school } from "@/data/site";
 
 export default function AdmissionBanner() {
   return (
@@ -16,23 +17,29 @@ export default function AdmissionBanner() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-600" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-600" />
               </span>
-              Session {admissionOpen.session}
+              Session {feeStructure.session}
             </span>
-            <h2 className="mt-5 text-4xl font-semibold sm:text-5xl">
-              {admissionOpen.title}
-            </h2>
-            <p className="mt-5 max-w-xl leading-8 text-white/80">{admissionOpen.text}</p>
+            <h2 className="mt-5 text-4xl font-semibold sm:text-5xl">Admission Open</h2>
+            <p className="mt-3 font-hindi text-xl text-gold-400">{school.taglineHi}</p>
+            <p className="mt-5 max-w-xl leading-8 text-white/80">
+              Admissions are open from Nursery to Class XII in Hindi and English medium, including the Science stream in Classes XI and XII. Registration charges are just ₹500 for every class.
+            </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <EnquiryButton className="bg-gold-500 text-navy-950 shadow-xl shadow-navy-900/10 hover:bg-gold-400">
-                Admissions Open <ArrowRight className="h-4 w-4" />
+                Admission Enquiry <ArrowRight className="h-4 w-4" />
               </EnquiryButton>
-              <a href={`tel:${primaryContact.admissionPhone}`} className="inline-flex items-center gap-2 rounded-md border-2 border-white/60 px-6 py-3 text-sm font-bold transition hover:bg-white hover:text-navy-900">
-                <Phone className="h-4 w-4" /> {primaryContact.admissionPhone}
+              <Link href="/admission#fees" className="inline-flex items-center gap-2 rounded-md border-2 border-white/60 px-6 py-3 text-sm font-bold transition hover:bg-white hover:text-navy-900">
+                <ReceiptIndianRupee className="h-4 w-4" /> Fee Structure
+              </Link>
+              <a href={`tel:${primaryContact.tel}`} className="inline-flex items-center gap-2 rounded-md border-2 border-white/60 px-6 py-3 text-sm font-bold transition hover:bg-white hover:text-navy-900">
+                <Phone className="h-4 w-4" /> {primaryContact.phone}
               </a>
             </div>
           </Reveal>
-          <Reveal from="left" className="relative min-h-80">
-            <SmartImage src="admissionGirl" alt="Happy RPS student" label="Student Photo" variant="red" className="absolute inset-0 lg:[clip-path:polygon(18%_0,100%_0,100%_100%,0_100%)]" />
+          <Reveal from="left" className="relative min-h-96 bg-cream">
+            <Link href="/admission#fees" aria-label="View Fee Structure 2027-28">
+              <SmartImage src="feeStructure" alt={`Fee Structure ${feeStructure.session}`} label="Fee Structure" variant="light" className="absolute inset-0" imgClassName="!object-contain p-4" />
+            </Link>
           </Reveal>
         </div>
       </div>

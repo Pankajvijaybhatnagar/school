@@ -1,12 +1,12 @@
-import { Award, BadgeCheck, CalendarCheck2, Globe2, Medal } from "lucide-react";
+import { BadgeCheck, BookOpen, CalendarCheck2, Languages, Trophy } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 
 const items = [
-  { icon: CalendarCheck2, title: "Admissions Open", sub: "Session 2026-27 & 2027-28" },
-  { icon: Medal, title: "Top 5 School of India", sub: "Award-2025" },
-  { icon: Globe2, title: "International School Award", sub: "2020-2023" },
-  { icon: BadgeCheck, title: "Cambridge International", sub: "Sector 89, Gurugram" },
-  { icon: Award, title: "28 Years", sub: "Excellence in Education" },
+  { icon: BadgeCheck, title: "CBSE Affiliated", sub: "Affiliation No. 530999" },
+  { icon: CalendarCheck2, title: "Admissions Open", sub: "Session 2027-28" },
+  { icon: BookOpen, title: "Nursery to XII", sub: "Senior Secondary School" },
+  { icon: Languages, title: "Hindi & English", sub: "Medium of Instruction" },
+  { icon: Trophy, title: "100% Results", sub: "Class X & XII, 2025-26" },
 ];
 
 export default function AwardsStrip() {

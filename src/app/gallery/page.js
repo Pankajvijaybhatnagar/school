@@ -4,7 +4,7 @@ import GalleryGrid from "@/components/sections/GalleryGrid";
 
 export const metadata = {
   title: "Photo Gallery",
-  description: "Our Event Gallery — celebrations, cultural programmes, felicitation ceremonies, sports and campus life at RPS Group of Schools.",
+  description: "Photo gallery — celebrations, cultural programmes, sports and campus life at Gurukul Vidyapeeth, Jind.",
 };
 
 export default function GalleryPage() {
@@ -13,12 +13,12 @@ export default function GalleryPage() {
       <PageHero
         title="Our Event"
         highlight="Gallery"
-        subtitle="Moments of pride, joy and celebration from across the RPS campuses."
+        subtitle="Moments of pride, joy and celebration at Gurukul Vidyapeeth."
         crumbs={[{ label: "Campus Life", href: "/facilities" }, { label: "Photo Gallery" }]}
       />
       <section className="py-20">
         <div className="container-x">
-          <SectionHeading eyebrow="Captured Memories" title="Life at" highlight="RPS" />
+          <SectionHeading eyebrow="Captured Memories" title="Life at" highlight="Gurukul" />
           <GalleryGrid />
         </div>
       </section>

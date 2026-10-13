@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X, Sparkles } from "lucide-react";
 import EnquiryForm from "@/components/sections/EnquiryForm";
 
-const EVENT = "rps:open-enquiry";
+const EVENT = "gv:open-enquiry";
 
 // Call from anywhere to open the admission enquiry popup.
 export function openEnquiry() {
@@ -54,13 +54,13 @@ export default function EnquiryModal() {
                   <Sparkles className="h-3.5 w-3.5" /> Admissions Open
                 </span>
                 <h3 className="mt-5 text-3xl font-semibold leading-tight">
-                  Session <span className="text-gold-400">2026-27</span>
+                  Session <span className="text-gold-400">2027-28</span>
                 </h3>
                 <p className="mt-4 text-sm leading-relaxed text-white/75">
-                  Join a legacy of 28 years. 55,000+ pupils, 140 NEET achievers with 500+ marks and 1,668 students scoring 90%+ in CBSE Class X 2026.
+                  Modern education rooted in the sanskaras of the Rishikul tradition — 100% results in CBSE Class X and XII 2025-26.
                 </p>
                 <ul className="mt-6 space-y-2 text-sm">
-                  {["IIT • NEET • NDA • NTSE • CLAT • CPT", "Smart Classrooms & Labs", "3 Swimming Pools & Sports Complex", "Cambridge International (Sec-89)"].map((t) => (
+                  {["CBSE Affiliated — No. 530999", "Nursery to Class XII", "Hindi & English Medium", "Science stream in Classes XI–XII"].map((t) => (
                     <li key={t} className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rotate-45 bg-gold-400" /> {t}
                     </li>

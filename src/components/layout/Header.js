@@ -6,14 +6,15 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Mail, MapPin, Menu, PhoneCall, X } from "lucide-react";
 import Logo from "./Logo";
-import { navigation, primaryContact, social } from "@/data/site";
+import { activeSocial, navigation, primaryContact } from "@/data/site";
 import { socialIconMap } from "@/components/ui/SocialIcons";
 import { openEnquiry } from "./EnquiryModal";
 
 const topLinks = [
-  { label: "C.E.O Window", href: "/ceo-window" },
-  { label: "Parent Login", href: "/parent-login" },
+  { label: "CBSE Affiliation No. 530999", href: "/mandatory-disclosure" },
   { label: "Mandatory Disclosure", href: "/mandatory-disclosure" },
+  { label: "Fee Structure 2027-28", href: "/admission#fees" },
+  { label: "Parent Login", href: "/parent-login" },
 ];
 
 /* Row 0 — slim utility bar (desktop only). */
@@ -30,10 +31,10 @@ function TopBar() {
         </ul>
         <div className="flex items-center gap-6">
           <span className="hidden items-center gap-2 whitespace-nowrap xl:flex">
-            <MapPin className="h-3.5 w-3.5 text-gold-500" /> Satnali Road, Mahendergarh (HR)
+            <MapPin className="h-3.5 w-3.5 text-gold-500" /> Gohana Road, Pandu Pindara, Jind (HR)
           </span>
-          <span className="flex items-center gap-3.5 border-white/15 xl:border-l xl:pl-6">
-            {Object.entries(social).map(([k, href]) => {
+          {activeSocial.length > 0 && <span className="flex items-center gap-3.5 border-white/15 xl:border-l xl:pl-6">
+            {activeSocial.map(([k, href]) => {
               const I = socialIconMap[k];
               return (
                 <a key={k} href={href} aria-label={k} className="transition hover:text-gold-400">
@@ -41,7 +42,7 @@ function TopBar() {
                 </a>
               );
             })}
-          </span>
+          </span>}
         </div>
       </div>
     </div>
@@ -196,17 +197,17 @@ function MobileNav({ open, onClose }) {
               ))}
             </ul>
             <div className="grid gap-2 border-t border-line p-4">
-              <a href={`tel:${primaryContact.admissionPhone}`} className="flex items-center justify-center gap-2 py-2 text-sm font-semibold text-navy-900">
-                <PhoneCall className="h-4 w-4 text-gold-500" /> {primaryContact.admissionPhone}
+              <a href={`tel:${primaryContact.tel}`} className="flex items-center justify-center gap-2 py-2 text-sm font-semibold text-navy-900">
+                <PhoneCall className="h-4 w-4 text-gold-500" /> {primaryContact.phone}
               </a>
               <button
                 onClick={() => { onClose(); openEnquiry(); }}
                 className="bg-brand-600 py-3.5 text-[13px] font-semibold uppercase tracking-[0.12em] text-white"
               >
-                Apply Now — 2026-27
+                Apply Now — 2027-28
               </button>
               <div className="grid grid-cols-2 gap-2 text-[12px] font-semibold uppercase tracking-wider">
-                <Link href="/ceo-window" onClick={onClose} className="bg-navy-800 py-3 text-center text-white">CEO Window</Link>
+                <Link href="/mandatory-disclosure" onClick={onClose} className="bg-navy-800 py-3 text-center text-white">Disclosure</Link>
                 <Link href="/parent-login" onClick={onClose} className="border border-navy-800 py-3 text-center text-navy-800">Parent Login</Link>
               </div>
             </div>
@@ -242,7 +243,7 @@ export default function Header() {
           <Logo />
           <div className="flex items-center gap-7">
             <div className="hidden items-center gap-7 lg:flex">
-              <ContactItem icon={PhoneCall} label="Admission Enquiry" value={primaryContact.admissionPhone} href={`tel:${primaryContact.admissionPhone}`} />
+              <ContactItem icon={PhoneCall} label="Admission Enquiry" value={primaryContact.phone} href={`tel:${primaryContact.tel}`} />
               <span className="hidden h-10 w-px bg-line xl:block" />
               <div className="hidden xl:block">
                 <ContactItem icon={Mail} label="Write to Us" value={primaryContact.email} href={`mailto:${primaryContact.email}`} />

@@ -2,33 +2,34 @@ import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
-import SmartImage from "@/components/ui/SmartImage";
 import Icon from "@/components/ui/Icon";
 import Button from "@/components/ui/Button";
 import GalleryGrid from "@/components/sections/GalleryGrid";
-import { facilities, lifeAtRps, whyChoose } from "@/data/site";
+import VideoGrid from "@/components/sections/VideoGrid";
+import StatsBand from "@/components/sections/StatsBand";
+import { facilities } from "@/data/site";
 
 export const metadata = {
   title: "Facilities",
-  description: "World class facilities at RPS — smart classrooms, 3 computer labs with 150+ computers, science labs, library, sports complex and three grand swimming pools.",
+  description: "Facilities at Gurukul Vidyapeeth, Jind — 20 classrooms, 6 laboratories including computer lab, internet facility, transport and a 20,088 sq. m campus.",
 };
 
 export default function FacilitiesPage() {
   return (
     <>
       <PageHero
-        title="World Class"
+        title="Our"
         highlight="Facilities"
-        subtitle="Green, open campuses designed for learning, play and all-round development."
+        subtitle="The campus ‘Sigma Vidya Kunj’ at Pandu Pindara, Gohana Road, Jind."
         crumbs={[{ label: "Campus Life", href: "/facilities" }, { label: "Facilities" }]}
       />
 
       <section className="py-20">
         <div className="container-x">
           <SectionHeading eyebrow="Infrastructure" title="Everything a Learner" highlight="Needs" />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {facilities.map((f, i) => (
-              <Reveal key={f.title} delay={(i % 3) * 0.1}>
+              <Reveal key={f.title} delay={(i % 4) * 0.1}>
                 <div className="group relative h-full overflow-hidden rounded-3xl bg-white p-8 shadow-lg shadow-navy-900/5 ring-1 ring-slate-100 card-lift">
                   <span className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gold-100 transition-all duration-500 group-hover:scale-[5] group-hover:bg-navy-900" />
                   <div className="relative">
@@ -45,43 +46,12 @@ export default function FacilitiesPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-navy-800 py-20 text-white">
-        <div className="absolute inset-0 bg-dots opacity-30" />
-        <div className="container-x relative">
-          <Reveal className="mx-auto mb-12 max-w-3xl text-center">
-            <h2 className="font-serif text-5xl font-bold italic">Life @ RPS</h2>
-            <p className="mt-4 text-white/90">{lifeAtRps.text}</p>
-          </Reveal>
-          <div className="grid gap-6 md:grid-cols-2">
-            {lifeAtRps.cards.map((card, i) => (
-              <Reveal key={card.title} delay={i * 0.12}>
-                <div className="group h-full overflow-hidden rounded-3xl bg-white text-ink shadow-xl card-lift">
-                  <SmartImage src={card.image} alt={card.title} label={card.title} className="aspect-video transition duration-700 group-hover:scale-105" />
-                  <div className="p-7">
-                    <h3 className="text-2xl font-semibold text-navy-900">{card.title}</h3>
-                    <p className="mt-2 leading-7 text-muted">{card.text}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StatsBand />
 
       <section className="bg-cream py-20">
         <div className="container-x">
-          <SectionHeading eyebrow="Why Choose RPS?" title="Built for" highlight="Excellence" />
-          <div className="grid gap-6 md:grid-cols-3">
-            {whyChoose.map((w, i) => (
-              <Reveal key={w.title} delay={i * 0.1}>
-                <div className="h-full rounded-3xl bg-navy-900 p-8 text-white shadow-xl card-lift">
-                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gold-500 text-navy-950"><Icon name={w.icon} className="h-7 w-7" /></span>
-                  <h3 className="mt-5 text-xl font-semibold">{w.title}</h3>
-                  <p className="mt-2 text-sm leading-7 text-white/75">{w.text}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <SectionHeading eyebrow="Campus Tour" title="See Our" highlight="Infrastructure" text="The inspection video of the school covering its infrastructure." />
+          <VideoGrid />
         </div>
       </section>
 

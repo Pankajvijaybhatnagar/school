@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 
-export default function Counter({ value, suffix = "", duration = 2000, className = "" }) {
+export default function Counter({ value, suffix = "", duration = 2000, className = "", plain = false }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
   const [n, setN] = useState(0);
@@ -23,7 +23,7 @@ export default function Counter({ value, suffix = "", duration = 2000, className
 
   return (
     <span ref={ref} className={className}>
-      {n.toLocaleString("en-IN")}
+      {plain ? n : n.toLocaleString("en-IN")}
       {suffix}
     </span>
   );

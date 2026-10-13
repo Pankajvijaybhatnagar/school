@@ -11,7 +11,7 @@ const side = [
   { key: "facebook", Icon: FacebookIcon, bg: "bg-navy-800" },
   { key: "instagram", Icon: InstagramIcon, bg: "bg-navy-800" },
   { key: "youtube", Icon: YoutubeIcon, bg: "bg-navy-800" },
-];
+].filter((s) => social[s.key]);
 
 export default function FloatingActions() {
   const [progress, setProgress] = useState(0);
@@ -53,7 +53,7 @@ export default function FloatingActions() {
 
       {/* WhatsApp */}
       <a
-        href={`https://wa.me/${primaryContact.whatsapp}?text=${encodeURIComponent("Hello RPS, I would like to know about admissions.")}`}
+        href={`https://wa.me/${primaryContact.whatsapp}?text=${encodeURIComponent("Hello Gurukul Vidyapeeth, I would like to know about admissions.")}`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
