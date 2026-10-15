@@ -36,7 +36,7 @@ const infra = [
 export default function AcademicsPage() {
   return (
     <>
-      <PageHero image="/images/photos/class-senior.jpg" title="Academics at" highlight="Gurukul" subtitle={`${school.board} • ${school.classes} • ${school.medium}`} crumbs={[{ label: "Academics" }]} />
+      <PageHero image="/images/photos/class-senior.webp" title="Academics at" highlight="Gurukul" subtitle={`${school.board} • ${school.classes} • ${school.medium}`} crumbs={[{ label: "Academics" }]} />
 
       <section className="py-20">
         <div className="container-x">

@@ -18,7 +18,7 @@ const perks = [
 export default function ParentLoginPage() {
   return (
     <>
-      <PageHero image="/images/photos/class-junior.jpg" title="Parent" highlight="Login" subtitle="Stay connected with your child's progress at Gurukul Vidyapeeth." crumbs={[{ label: "Parent Login" }]} />
+      <PageHero image="/images/photos/class-junior.webp" title="Parent" highlight="Login" subtitle="Stay connected with your child's progress at Gurukul Vidyapeeth." crumbs={[{ label: "Parent Login" }]} />
       <section className="bg-cream py-20">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <Reveal from="right">

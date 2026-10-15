@@ -27,7 +27,7 @@ const facts = [
 export default function AboutPage() {
   return (
     <>
-      <PageHero image="/images/photos/campus-building.jpg"
+      <PageHero image="/images/photos/campus-building.webp"
         title="About"
         highlight="Gurukul Vidyapeeth"
         subtitle={school.tagline}

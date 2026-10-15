@@ -28,7 +28,7 @@ const support = [
 export default function FacultyPage() {
   return (
     <>
-      <PageHero image="/images/photos/science-lab-2.jpg" title="Faculty &" highlight="Staff" subtitle={`The teachers of ${school.fullName}.`} crumbs={[{ label: "Academics", href: "/academics" }, { label: "Faculty" }]} />
+      <PageHero image="/images/photos/science-lab-2.webp" title="Faculty &" highlight="Staff" subtitle={`The teachers of ${school.fullName}.`} crumbs={[{ label: "Academics", href: "/academics" }, { label: "Faculty" }]} />
 
       <LeaderMessage person={principal} id="principal" eyebrow="From the Principal's Desk" full />
 

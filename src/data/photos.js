@@ -1,6 +1,6 @@
 // School photo library. Each photo exists in two sizes:
-//   /images/photos/<slug>.jpg        — large (max 1800px), for heroes & lightbox
-//   /images/photos/thumb/<slug>.jpg  — small (max 760px), for grids & cards
+//   /images/photos/<slug>.webp        — large (max 1440px), for heroes & lightbox
+//   /images/photos/thumb/<slug>.webp  — small (max 640px), for grids & cards
 // To add a photo: drop both sizes in those folders and add a row below.
 
 export const photoList = [
@@ -111,5 +111,5 @@ export const photoList = [
   { slug: "audience", title: "Parents & Guests", category: "Events", w: 760, h: 342 },
 ];
 
-export const photo = (slug) => `/images/photos/${slug}.jpg`;
-export const thumb = (slug) => `/images/photos/thumb/${slug}.jpg`;
+export const photo = (slug) => `/images/photos/${slug}.webp`;
+export const thumb = (slug) => `/images/photos/thumb/${slug}.webp`;

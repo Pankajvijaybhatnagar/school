@@ -76,7 +76,7 @@ function ResultTable({ cls, rows }) {
 export default function MandatoryDisclosurePage() {
   return (
     <>
-      <PageHero image="/images/photos/campus-garden.jpg"
+      <PageHero image="/images/photos/campus-garden.webp"
         title="Mandatory"
         highlight="Public Disclosure"
         subtitle={`Information as per the CBSE Affiliation Bye-Laws — ${school.fullName}.`}

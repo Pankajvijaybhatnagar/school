@@ -19,7 +19,7 @@ export const metadata = {
 export default function FacilitiesPage() {
   return (
     <>
-      <PageHero image="/images/photos/campus-front.jpg"
+      <PageHero image="/images/photos/campus-front.webp"
         title="Our"
         highlight="Facilities"
         subtitle="The campus ‘Sigma Vidya Kunj’ at Pandu Pindara, Gohana Road, Jind."

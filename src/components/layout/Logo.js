@@ -2,7 +2,7 @@ import Link from "next/link";
 import { images } from "@/data/images";
 import { school } from "@/data/site";
 
-// School crest from /public/images/logo/gurukul-logo.jpg with the name beside it.
+// School crest from /public/images/logo/gurukul-logo.webp with the name beside it.
 export default function Logo({ light = false, compact = false }) {
   return (
     <Link href="/" className="flex shrink-0 items-center gap-3" aria-label={`${school.name}, ${school.place} — Home`}>

@@ -33,7 +33,7 @@ const faqs = [
 export default function AdmissionPage() {
   return (
     <>
-      <PageHero image="/images/photos/kids-play-slides.jpg" title="Admissions" highlight="Open" subtitle={`Session ${feeStructure.session} • ${school.classes} • ${school.medium}`} crumbs={[{ label: "Admission" }]} />
+      <PageHero image="/images/photos/kids-play-slides.webp" title="Admissions" highlight="Open" subtitle={`Session ${feeStructure.session} • ${school.classes} • ${school.medium}`} crumbs={[{ label: "Admission" }]} />
 
       <section className="py-20">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">

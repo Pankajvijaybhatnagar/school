@@ -20,7 +20,7 @@ const quick = [
 export default function ContactPage() {
   return (
     <>
-      <PageHero image="/images/photos/campus-entrance.jpg"
+      <PageHero image="/images/photos/campus-entrance.webp"
         title="Contact"
         highlight="Us"
         subtitle="We'd love to hear from you. Visit us, call us or send an enquiry."

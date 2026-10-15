@@ -5,15 +5,15 @@ import { photo, photoList, thumb } from "./photos";
 
 export const images = {
   // Logo
-  logo: "/images/logo/gurukul-logo.jpg",
+  logo: "/images/logo/gurukul-logo.webp",
 
   // Documents shown as images
   feeStructure: "/images/admission/fee-structure-2027-28.jpg",
 
   // People
-  chairman: "/images/people/chairman.jpg",
-  chairmanPortrait: "/images/people/chairman-portrait.jpg",
-  viceChairman: "/images/people/vice-chairman.jpg",
+  chairman: "/images/people/chairman.webp",
+  chairmanPortrait: "/images/people/chairman-portrait.webp",
+  viceChairman: "/images/people/vice-chairman.webp",
 
   // Campus photos
   welcome: photo("campus-students-walk"),

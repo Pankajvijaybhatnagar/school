@@ -46,7 +46,7 @@ export default function LogoMeaning({ full = false }) {
             <Reveal key={s.key} delay={i * 0.08} className="h-full">
               <div id={`symbol-${s.key}`} className="group h-full rounded-2xl bg-white p-7 text-center shadow-lg shadow-navy-900/5 ring-1 ring-slate-100 card-lift">
                 <SmartImage
-                  src={`/images/logo/symbols/${s.key}.jpg`}
+                  src={`/images/logo/symbols/${s.key}.webp`}
                   alt={`${s.title} — ${s.titleHi}`}
                   label={s.title}
                   variant="light"
@@ -67,7 +67,7 @@ export default function LogoMeaning({ full = false }) {
           {logoMeaning.symbols.map((s) => (
             <Reveal key={s.key} className="rounded-2xl bg-white p-8 shadow-lg shadow-navy-900/5 ring-1 ring-slate-100 sm:grid sm:grid-cols-[120px_1fr] sm:gap-8 sm:p-10">
               <SmartImage
-                src={`/images/logo/symbols/${s.key}.jpg`}
+                src={`/images/logo/symbols/${s.key}.webp`}
                 alt={s.title}
                 label={s.title}
                 variant="light"

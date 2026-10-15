@@ -10,7 +10,7 @@ export const metadata = {
 export default function VideosPage() {
   return (
     <>
-      <PageHero image="/images/photos/stage-welcome.jpg"
+      <PageHero image="/images/photos/stage-welcome.webp"
         title="Video"
         highlight="Gallery"
         subtitle="A look at our school, its campus and infrastructure."

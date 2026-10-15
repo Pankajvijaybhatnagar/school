@@ -310,7 +310,7 @@ export const facilities = [
 ];
 
 export const videos = [
-  { title: "School Inspection Video — Infrastructure of the School", channel: "Gurukul Vidyapeeth, Jind", id: "dNkH5PZN-f0", image: "/images/photos/campus-building.jpg" },
+  { title: "School Inspection Video — Infrastructure of the School", channel: "Gurukul Vidyapeeth, Jind", id: "dNkH5PZN-f0", image: "/images/photos/campus-building.webp" },
 ];
 
 // Documents shown on the Mandatory Disclosure and Downloads pages.
