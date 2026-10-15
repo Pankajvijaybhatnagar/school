@@ -33,7 +33,7 @@ const faqs = [
 export default function AdmissionPage() {
   return (
     <>
-      <PageHero title="Admissions" highlight="Open" subtitle={`Session ${feeStructure.session} • ${school.classes} • ${school.medium}`} crumbs={[{ label: "Admission" }]} />
+      <PageHero image="/images/photos/kids-play-slides.jpg" title="Admissions" highlight="Open" subtitle={`Session ${feeStructure.session} • ${school.classes} • ${school.medium}`} crumbs={[{ label: "Admission" }]} />
 
       <section className="py-20">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
@@ -60,7 +60,7 @@ export default function AdmissionPage() {
             <a href="#fees" aria-label="See the fee structure">
               <SmartImage src="feeStructure" alt={`Fee Structure ${feeStructure.session}`} label="Fee Structure" className="aspect-[1131/1600] rounded-2xl bg-cream shadow-xl" imgClassName="!object-contain" variant="light" />
             </a>
-            <div className="absolute -bottom-6 -left-2 rounded-2xl bg-white p-5 shadow-xl sm:-left-6">
+            <div className="mt-5 rounded-2xl border-l-4 border-gold-500 bg-white p-5 shadow-xl">
               <p className="text-xs font-bold uppercase tracking-widest text-brand-600">Admission Enquiry</p>
               <a href={`tel:${primaryContact.tel}`} className="mt-1 flex items-center gap-2 text-lg font-semibold text-navy-900"><Phone className="h-4 w-4" /> {primaryContact.phone}</a>
             </div>

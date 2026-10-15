@@ -1,9 +1,6 @@
-import { Flame, Flower2, Sun, Waves } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
 import { logoMeaning, school } from "@/data/site";
-
-const icons = { sun: Sun, conch: Waves, lamp: Flame, lotus: Flower2 };
 
 /* The crest, the motto and the four symbols. `full` adds the complete Hindi text. */
 export default function LogoMeaning({ full = false }) {
@@ -11,7 +8,7 @@ export default function LogoMeaning({ full = false }) {
     <>
       <div className="grid items-center gap-12 lg:grid-cols-[360px_1fr]">
         <Reveal from="right" className="relative mx-auto w-full max-w-xs">
-          <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-full border border-gold-500/60" />
+          <div className="absolute -inset-3 rounded-full border border-gold-500/60" />
           <SmartImage src="logo" alt={`${school.name} logo`} className="relative aspect-square rounded-full bg-white shadow-xl" imgClassName="!object-contain" variant="light" />
         </Reveal>
         <Reveal from="left">
@@ -45,13 +42,17 @@ export default function LogoMeaning({ full = false }) {
       <p className="mt-14 text-center font-hindi text-xl text-navy-900">{logoMeaning.symbolsIntro}</p>
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {logoMeaning.symbols.map((s, i) => {
-          const I = icons[s.key];
           return (
             <Reveal key={s.key} delay={i * 0.08} className="h-full">
-              <div id={`symbol-${s.key}`} className="h-full rounded-2xl bg-white p-7 shadow-lg shadow-navy-900/5 ring-1 ring-slate-100 card-lift">
-                <span className="grid h-14 w-14 place-items-center rounded-full border border-gold-500/50 bg-cream text-gold-500">
-                  <I className="h-7 w-7" strokeWidth={1.5} />
-                </span>
+              <div id={`symbol-${s.key}`} className="group h-full rounded-2xl bg-white p-7 text-center shadow-lg shadow-navy-900/5 ring-1 ring-slate-100 card-lift">
+                <SmartImage
+                  src={`/images/logo/symbols/${s.key}.jpg`}
+                  alt={`${s.title} — ${s.titleHi}`}
+                  label={s.title}
+                  variant="light"
+                  className="mx-auto aspect-square w-32 bg-white transition duration-500 group-hover:scale-105"
+                  imgClassName="!object-contain"
+                />
                 <p className="mt-5 font-hindi text-2xl text-brand-600">{s.titleHi}</p>
                 <h3 className="text-lg font-semibold text-navy-900">{s.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-muted">{s.summary}</p>
@@ -64,7 +65,16 @@ export default function LogoMeaning({ full = false }) {
       {full && (
         <div className="mt-12 space-y-6">
           {logoMeaning.symbols.map((s) => (
-            <Reveal key={s.key} className="rounded-2xl bg-white p-8 shadow-lg shadow-navy-900/5 ring-1 ring-slate-100 sm:p-10">
+            <Reveal key={s.key} className="rounded-2xl bg-white p-8 shadow-lg shadow-navy-900/5 ring-1 ring-slate-100 sm:grid sm:grid-cols-[120px_1fr] sm:gap-8 sm:p-10">
+              <SmartImage
+                src={`/images/logo/symbols/${s.key}.jpg`}
+                alt={s.title}
+                label={s.title}
+                variant="light"
+                className="mb-5 aspect-square w-24 bg-white sm:mb-0 sm:w-full sm:self-start"
+                imgClassName="!object-contain"
+              />
+              <div>
               <h3 className="flex items-baseline gap-3 text-2xl font-semibold text-navy-900">
                 <span className="font-hindi text-3xl font-normal text-brand-600">{s.titleHi}</span>
                 <span className="text-base text-muted">{s.title}</span>
@@ -73,6 +83,7 @@ export default function LogoMeaning({ full = false }) {
                 {s.text.map((t) => (
                   <p key={t.slice(0, 24)} className="font-hindi text-base leading-9 text-ink">{t}</p>
                 ))}
+              </div>
               </div>
             </Reveal>
           ))}

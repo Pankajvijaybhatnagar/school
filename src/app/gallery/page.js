@@ -10,7 +10,7 @@ export const metadata = {
 export default function GalleryPage() {
   return (
     <>
-      <PageHero
+      <PageHero image="/images/photos/dance-haryanvi.jpg"
         title="Our Event"
         highlight="Gallery"
         subtitle="Moments of pride, joy and celebration at Gurukul Vidyapeeth."

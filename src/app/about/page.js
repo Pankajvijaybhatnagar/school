@@ -8,7 +8,9 @@ import StatsBand from "@/components/sections/StatsBand";
 import Timeline from "@/components/sections/Timeline";
 import Leadership from "@/components/sections/Leadership";
 import LogoMeaning from "@/components/sections/LogoMeaning";
-import { aboutEn, aboutHi, school } from "@/data/site";
+import PhotoStrip from "@/components/sections/PhotoStrip";
+import LeaderMessage from "@/components/sections/LeaderMessage";
+import { aboutEn, aboutHi, chairman, school, viceChairman } from "@/data/site";
 
 export const metadata = {
   title: "About Us",
@@ -25,7 +27,7 @@ const facts = [
 export default function AboutPage() {
   return (
     <>
-      <PageHero
+      <PageHero image="/images/photos/campus-building.jpg"
         title="About"
         highlight="Gurukul Vidyapeeth"
         subtitle={school.tagline}
@@ -37,7 +39,7 @@ export default function AboutPage() {
         <div className="container-x grid items-start gap-14 lg:grid-cols-[2fr_3fr]">
           <Reveal from="right" className="lg:sticky lg:top-28">
             <div className="relative mx-auto max-w-sm">
-              <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-full border border-gold-500/60" />
+              <div className="absolute -inset-3 rounded-full border border-gold-500/60" />
               <SmartImage src="logo" alt={`${school.name} logo`} className="relative aspect-square rounded-full bg-white shadow-xl" imgClassName="!object-contain" variant="light" />
             </div>
             <p className="mt-10 text-center font-hindi text-2xl text-navy-900">{school.taglineHi}</p>
@@ -69,6 +71,18 @@ export default function AboutPage() {
               <Button href="/mandatory-disclosure" variant="ghost">Mandatory Disclosure</Button>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      <LeaderMessage person={chairman} id="chairman" eyebrow="From the Chairman's Desk" full />
+      <LeaderMessage person={viceChairman} id="vice-chairman" eyebrow="From the Vice Chairman's Desk" full flip tone="white" />
+
+      {/* Life at Gurukul */}
+      <section className="py-20">
+        <SectionHeading eyebrow="Life at Gurukul" title="Moments That" highlight="Shape Us" />
+        <PhotoStrip />
+        <div className="mt-10 text-center">
+          <Button href="/gallery" variant="navy">View Photo Gallery</Button>
         </div>
       </section>
 

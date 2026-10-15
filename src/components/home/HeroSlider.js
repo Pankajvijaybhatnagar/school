@@ -8,6 +8,7 @@ import SmartImage from "@/components/ui/SmartImage";
 import { buttonBase } from "@/components/ui/Button";
 import { boardResults, feeStructure, school } from "@/data/site";
 import { openEnquiry } from "@/components/layout/EnquiryModal";
+import { photo } from "@/data/photos";
 
 const DURATION = 7000;
 const EASE = [0.22, 0.7, 0.2, 1];
@@ -19,8 +20,8 @@ const slides = [
   {
     key: "welcome",
     tab: "Gurukul Vidyapeeth",
-    image: "logo",
-    contain: true,
+    bg: photo("campus-building"),
+    image: photo("science-lab-4"),
     icon: Flame,
     eyebrow: "Shri Lajja Ram Bashesar Dass",
     title: (
@@ -35,8 +36,8 @@ const slides = [
   {
     key: "results",
     tab: "Board Results",
-    image: "logo",
-    contain: true,
+    bg: photo("science-lab"),
+    image: photo("graduation-3"),
     icon: Trophy,
     eyebrow: `CBSE Board Results ${latestX.year}`,
     title: (
@@ -51,8 +52,8 @@ const slides = [
   {
     key: "admission",
     tab: "Admissions Open",
-    image: "feeStructure",
-    contain: true,
+    bg: photo("kids-play-slides"),
+    image: photo("kids-ride"),
     icon: Sparkles,
     eyebrow: "Admissions Open",
     title: (
@@ -67,8 +68,8 @@ const slides = [
   {
     key: "legacy",
     tab: "Our Legacy",
-    image: "logo",
-    contain: true,
+    bg: photo("havan"),
+    image: photo("dance-stage-2"),
     icon: Landmark,
     eyebrow: "Rishikul Tradition Since 1968",
     title: (
@@ -231,7 +232,7 @@ export default function HeroSlider() {
       aria-roledescription="carousel"
       aria-label="Highlights"
     >
-      {/* Background: the slide photo, softened and darkened */}
+      {/* Background: full-bleed slide photo with a slow zoom, darkened toward the copy */}
       <AnimatePresence mode="sync">
         <motion.div
           key={s.key}
@@ -241,8 +242,16 @@ export default function HeroSlider() {
           exit={{ opacity: 0 }}
           transition={{ duration: 1.1 }}
         >
-          {!s.contain && <SmartImage src={s.image} alt="" className="absolute inset-0 scale-110 blur-[2px]" variant="navy" priority />}
-          <div className="absolute inset-0 bg-navy-950/80" />
+          <motion.div
+            className="absolute inset-0"
+            initial={{ scale: 1.15 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: DURATION / 1000 + 2, ease: "linear" }}
+          >
+            <SmartImage src={s.bg} alt="" className="absolute inset-0" variant="navy" priority />
+          </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/80 to-navy-950/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-transparent to-navy-950/40" />
         </motion.div>
       </AnimatePresence>
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,rgb(176_141_87/0.16),transparent_55%)]" />
@@ -315,7 +324,7 @@ export default function HeroSlider() {
         <div className="relative hidden lg:col-span-5 lg:block">
           <div className="relative mx-auto aspect-[4/5] w-full max-w-[400px]">
             {/* offset gold outline */}
-            <div className="absolute inset-0 translate-x-5 translate-y-5 rounded-t-full border border-gold-500/60" />
+            <div className="absolute -inset-3 rounded-t-full border border-gold-500/60" />
             {/* arch photo */}
             <div className="absolute inset-0 overflow-hidden rounded-t-full border-[6px] border-white/95 bg-cream shadow-2xl shadow-navy-950/60">
               <AnimatePresence mode="sync">
@@ -327,7 +336,7 @@ export default function HeroSlider() {
                   exit={{ opacity: 0 }}
                   transition={{ opacity: { duration: 0.9 }, scale: { duration: DURATION / 1000 + 1, ease: "linear" } }}
                 >
-                  <SmartImage src={s.image} alt={s.eyebrow} label="Hero Photo" variant="light" className="absolute inset-0" imgClassName={s.contain ? "!object-contain px-8 pb-6 pt-16" : ""} priority />
+                  <SmartImage src={s.image} alt={s.eyebrow} label="Hero Photo" variant="light" className="absolute inset-0" priority />
                 </motion.div>
               </AnimatePresence>
             </div>

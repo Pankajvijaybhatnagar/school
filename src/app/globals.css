@@ -35,6 +35,7 @@
   --animate-marquee: marquee 45s linear infinite;
   --animate-pulse-ring: pulse-ring 2.4s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
   --animate-shine: shine 4s ease-in-out infinite;
+  --animate-hero-zoom: hero-zoom 18s ease-out forwards;
 
   @keyframes marquee {
     from { transform: translateX(0); }
@@ -47,6 +48,10 @@
   @keyframes scroll-up {
     from { transform: translateY(0); }
     to { transform: translateY(-50%); }
+  }
+  @keyframes hero-zoom {
+    from { transform: scale(1.12); }
+    to { transform: scale(1); }
   }
   @keyframes shine {
     0% { transform: translateX(-120%) skewX(-20deg); }

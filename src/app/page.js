@@ -3,6 +3,9 @@ import { ArrowRight } from "lucide-react";
 import HeroSlider from "@/components/home/HeroSlider";
 import AwardsStrip from "@/components/home/AwardsStrip";
 import Welcome from "@/components/home/Welcome";
+import CampusLife from "@/components/home/CampusLife";
+import LeaderMessage from "@/components/sections/LeaderMessage";
+import { chairman } from "@/data/site";
 import AdmissionBanner from "@/components/home/AdmissionBanner";
 import Ticker from "@/components/layout/Ticker";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -12,8 +15,8 @@ import LogoMeaning from "@/components/sections/LogoMeaning";
 import StatsBand from "@/components/sections/StatsBand";
 import Leadership from "@/components/sections/Leadership";
 import Timeline from "@/components/sections/Timeline";
-import VideoGrid from "@/components/sections/VideoGrid";
 import GalleryGrid from "@/components/sections/GalleryGrid";
+import { featuredGallery } from "@/data/images";
 
 export default function Home() {
   return (
@@ -22,6 +25,8 @@ export default function Home() {
       <Ticker />
       <AwardsStrip />
       <Welcome />
+      <LeaderMessage person={chairman} id="chairman" eyebrow="From the Chairman's Desk" />
+      <CampusLife />
 
       {/* Board results */}
       <section id="results" className="relative overflow-hidden bg-cream py-24">
@@ -66,19 +71,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Video */}
-      <section className="bg-white py-24">
-        <div className="container-x">
-          <SectionHeading eyebrow="Watch" title="Take a Tour of" highlight="Our School" text="The inspection video of the school covering its infrastructure." />
-          <VideoGrid />
-        </div>
-      </section>
-
       {/* Gallery */}
       <section className="bg-cream py-24">
         <div className="container-x">
           <SectionHeading eyebrow="Our Gallery" title="Life in" highlight="Pictures" />
-          <GalleryGrid limit={8} filters={false} />
+          <GalleryGrid items={featuredGallery} limit={10} filters={false} layout="bento" />
           <div className="mt-10 text-center">
             <Link href="/gallery" className="inline-flex items-center gap-2 font-bold text-brand-600 hover:gap-3">
               View Full Gallery <ArrowRight className="h-4 w-4" />

@@ -8,7 +8,8 @@ export default function StatsBand({ stats = schoolStats }) {
   return (
     <section className="relative overflow-hidden py-20">
       <SmartImage src="statsBg" alt="" className="absolute inset-0" variant="navy" />
-      <div className="absolute inset-0 bg-navy-950/90" />
+      <div className="absolute inset-0 bg-navy-950/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/60 via-transparent to-navy-950/60" />
       <div className="container-x relative">
         <Reveal className="grid grid-cols-2 gap-y-10 lg:grid-cols-4 lg:divide-x lg:divide-white/10">
           {stats.map((s) => (

@@ -10,14 +10,22 @@ export default function Welcome() {
     <section className="relative overflow-hidden bg-white py-28">
       <div className="container-x relative grid items-center gap-16 lg:grid-cols-2">
         <Reveal from="right" className="relative mx-auto w-full max-w-xl">
-          <div className="relative aspect-[5/6]">
-            <SmartImage src="welcome" alt="Gurukul Vidyapeeth campus" label="Campus Photo" className="absolute left-0 top-0 h-[78%] w-[78%] rounded-sm shadow-xl" />
-            <div className="absolute bottom-0 right-0 grid h-[55%] w-[58%] place-items-center rounded-sm border-[10px] border-white bg-cream shadow-xl">
-              <SmartImage src="logo" alt="Gurukul Vidyapeeth logo" className="aspect-square w-[78%]" imgClassName="!object-contain" variant="light" />
+          <div className="relative aspect-square">
+            {/* gold outline — evenly 12px around the main photo */}
+            <div className="absolute -left-3 -top-3 h-[calc(70%+1.5rem)] w-[calc(80%+1.5rem)] border border-gold-500/50" />
+            {/* main photo */}
+            <SmartImage src="welcome" alt="Gurukul Vidyapeeth campus" label="Campus Photo" className="absolute left-0 top-0 h-[70%] w-[80%] rounded-sm shadow-xl" />
+            {/* second photo — framed at its own 3:2 ratio so nobody is cut off */}
+            <div className="absolute bottom-0 right-0 w-[58%] bg-white p-2 shadow-2xl shadow-navy-900/20 sm:p-2.5">
+              <SmartImage src="welcome2" alt="Students in the science laboratory" label="Students" className="aspect-[3/2] w-full rounded-sm" />
             </div>
-            <div className="absolute -left-4 bottom-10 border border-gold-500/40 bg-navy-900 px-6 py-5 text-center text-white shadow-xl outline outline-1 outline-offset-4 outline-navy-900 sm:-left-8">
+            {/* logo badge on the corner where the two photos meet */}
+            <div className="absolute bottom-[38.7%] right-[58%] hidden h-16 w-16 sm:grid translate-x-1/2 translate-y-1/2 place-items-center rounded-full bg-white p-1.5 shadow-xl ring-1 ring-gold-500/40 sm:h-20 sm:w-20">
+              <SmartImage src="logo" alt="Gurukul Vidyapeeth logo" className="h-full w-full rounded-full" imgClassName="!object-contain" variant="light" />
+            </div>
+            <div className="absolute left-2 top-[70%] -translate-y-1/2 border border-gold-500/40 bg-navy-900 px-4 py-3 text-center text-white shadow-xl outline outline-1 outline-offset-4 outline-navy-900 sm:left-4 sm:px-6 sm:py-5">
               <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/70">Since</p>
-              <p className="font-display text-5xl font-semibold text-gold-400">{school.founded}</p>
+              <p className="font-display text-3xl font-semibold text-gold-400 sm:text-5xl">{school.founded}</p>
             </div>
           </div>
         </Reveal>

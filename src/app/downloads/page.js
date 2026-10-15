@@ -9,7 +9,7 @@ export const metadata = {
 export default function DownloadsPage() {
   return (
     <>
-      <PageHero
+      <PageHero image="/images/photos/library.jpg"
         title="Downloads &"
         highlight="Documents"
         subtitle="Fee structure, CBSE affiliation and school certificates — all in one place."

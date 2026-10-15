@@ -13,16 +13,24 @@ const NA = "To be uploaded";
 
 function Table({ head, rows }) {
   return (
-    <div className="overflow-x-auto rounded-2xl ring-1 ring-slate-200">
-      <table className="w-full min-w-[560px] text-left text-sm">
-        <thead className="bg-navy-800 text-white">
+    // On phones each row stacks into a small card so no column is cut off.
+    <div className="overflow-hidden rounded-2xl ring-1 ring-slate-200">
+      <table className="w-full text-left text-sm max-sm:block">
+        <thead className="bg-navy-800 text-white max-sm:hidden">
           <tr>{head.map((h) => <th key={h} className="px-5 py-3.5 font-semibold">{h}</th>)}</tr>
         </thead>
-        <tbody>
+        <tbody className="max-sm:block">
           {rows.map((r, i) => (
-            <tr key={i} className="border-b border-slate-100 odd:bg-slate-50">
+            <tr key={i} className="border-b border-slate-100 odd:bg-slate-50 max-sm:block max-sm:px-4 max-sm:py-3">
               {r.map((cell, j) => (
-                <td key={j} className={`px-5 py-3 align-top ${j === 0 ? "w-16 text-muted" : j === 1 ? "font-semibold text-muted" : "text-navy-900"}`}>{cell}</td>
+                <td
+                  key={j}
+                  className={`px-5 py-3 align-top break-words max-sm:block max-sm:p-0 ${
+                    j === 0 ? "w-16 text-muted max-sm:mb-1 max-sm:w-auto max-sm:text-[11px] max-sm:font-semibold max-sm:uppercase max-sm:tracking-wider max-sm:text-gold-500" : j === 1 ? "font-semibold text-muted max-sm:text-navy-900" : "text-navy-900 max-sm:mt-1 max-sm:text-muted"
+                  }`}
+                >
+                  {j === 0 ? <><span className="sm:hidden">No. </span>{cell}</> : cell}
+                </td>
               ))}
             </tr>
           ))}
@@ -68,7 +76,7 @@ function ResultTable({ cls, rows }) {
 export default function MandatoryDisclosurePage() {
   return (
     <>
-      <PageHero
+      <PageHero image="/images/photos/campus-garden.jpg"
         title="Mandatory"
         highlight="Public Disclosure"
         subtitle={`Information as per the CBSE Affiliation Bye-Laws — ${school.fullName}.`}
@@ -84,7 +92,7 @@ export default function MandatoryDisclosurePage() {
                 [2, "Affiliation No. (if applicable)", school.affiliationNo],
                 [3, "School Code (if applicable)", school.schoolCode],
                 [4, "Complete Address with Pin Code", school.address],
-                [5, "Principal Name & Qualification", `${principal.name.replace("Mrs. ", "")} — ${principal.qualification}`],
+                [5, "Principal Name & Qualification", `${principal.disclosureName} — ${principal.qualification}`],
                 [6, "School Email ID", <a key="m" href={`mailto:${primaryContact.email}`} className="text-brand-600 hover:underline">{primaryContact.email}</a>],
                 [7, "Contact Details (Landline/Mobile)", <a key="t" href={`tel:${primaryContact.tel}`} className="text-brand-600 hover:underline">{primaryContact.phone}</a>],
               ]}

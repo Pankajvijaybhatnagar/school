@@ -26,7 +26,7 @@ const roles = [
 export default function CareersPage() {
   return (
     <>
-      <PageHero
+      <PageHero image="/images/photos/office-reception.jpg"
         title="Career"
         highlight="With Us"
         subtitle="Shape the future of young learners. Join the Gurukul Vidyapeeth family."

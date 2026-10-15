@@ -24,7 +24,7 @@ const banners = [
 export default function AchievementsPage() {
   return (
     <>
-      <PageHero title="Board" highlight="Results" subtitle="CBSE Board Examination results of Class X and Class XII for the last three years." crumbs={[{ label: "Results" }]} />
+      <PageHero image="/images/photos/felicitation.jpg" title="Board" highlight="Results" subtitle="CBSE Board Examination results of Class X and Class XII for the last three years." crumbs={[{ label: "Results" }]} />
 
       <section className="relative -mt-6 pb-10">
         <div className="container-x grid grid-cols-2 gap-4 lg:grid-cols-4">

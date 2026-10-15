@@ -1,6 +1,7 @@
-// Image registry. Drop real photos into /public/images using these exact
-// file names (or change the paths here). Until a file exists, the site shows
-// a styled placeholder automatically — nothing breaks.
+// Image registry. Components refer to images by these keys (or a direct path).
+// Until a file exists, the site shows a styled placeholder automatically.
+
+import { photo, photoList, thumb } from "./photos";
 
 export const images = {
   // Logo
@@ -10,24 +11,59 @@ export const images = {
   feeStructure: "/images/admission/fee-structure-2027-28.jpg",
 
   // People
-  patron: "/images/people/patron.jpg",
-  principal: "/images/people/principal.jpg",
-  founder: "/images/people/founder.jpg",
+  chairman: "/images/people/chairman.jpg",
+  chairmanPortrait: "/images/people/chairman-portrait.jpg",
+  viceChairman: "/images/people/vice-chairman.jpg",
 
-  // Campus photos (add when available)
-  welcome: "/images/sections/campus.jpg",
-  welcome2: "/images/sections/students.jpg",
-  statsBg: "/images/sections/stats-bg.jpg",
+  // Campus photos
+  welcome: photo("campus-students-walk"),
+  welcome2: thumb("science-lab-4"),
+  statsBg: photo("campus-panorama"),
 };
 
-// Gallery — add as many as you like: /public/images/gallery/1.jpg, 2.jpg ...
-export const gallery = [
-  { src: "/images/gallery/1.jpg", title: "School Building — Sigma Vidya Kunj", category: "Campus" },
-  { src: "/images/gallery/2.jpg", title: "Morning Assembly", category: "Events" },
-  { src: "/images/gallery/3.jpg", title: "Vasant Panchami — Foundation Day", category: "Events" },
-  { src: "/images/gallery/4.jpg", title: "Classroom Learning", category: "Campus" },
-  { src: "/images/gallery/5.jpg", title: "Science Laboratory", category: "Campus" },
-  { src: "/images/gallery/6.jpg", title: "Computer Lab", category: "Campus" },
-  { src: "/images/gallery/7.jpg", title: "Cultural Programme", category: "Cultural" },
-  { src: "/images/gallery/8.jpg", title: "Sports Day", category: "Sports" },
-];
+// Gallery items: `src` is the grid thumbnail, `full` the lightbox image.
+const toItem = (p) => ({ ...p, src: thumb(p.slug), full: photo(p.slug) });
+
+// Interleave categories so the "All" view mixes campus, labs, sports, culture...
+function interleave(list) {
+  const groups = {};
+  for (const p of list) (groups[p.category] ||= []).push(p);
+  const out = [];
+  for (let i = 0; out.length < list.length; i++) {
+    for (const g of Object.values(groups)) if (g[i]) out.push(g[i]);
+  }
+  return out;
+}
+
+export const galleryCategories = [...new Set(photoList.map((p) => p.category))];
+export const gallery = interleave(photoList).map(toItem);
+
+const bySlug = Object.fromEntries(photoList.map((p) => [p.slug, toItem(p)]));
+export const pick = (...slugs) => slugs.map((s) => bySlug[s]);
+
+// Hand-picked mix for the home page and facilities page grids.
+export const featuredGallery = pick(
+  "dance-haryanvi",
+  "science-lab-4",
+  "kids-play-slides",
+  "computer-lab-3",
+  "dance-stage-2",
+  "havan",
+  "library",
+  "republic-day",
+  "games-rings",
+  "graduation-3",
+);
+
+export const campusGallery = pick(
+  "campus-building",
+  "lab-room",
+  "computer-lab-4",
+  "library-2",
+  "kids-ride",
+  "av-room",
+  "mural-solar-system",
+  "campus-entrance",
+  "pre-primary-corridor",
+  "campus-panorama",
+);

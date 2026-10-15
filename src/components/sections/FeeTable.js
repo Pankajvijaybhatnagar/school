@@ -14,13 +14,13 @@ export default function FeeTable() {
         </a>
       </div>
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[560px] text-left text-sm">
+        <table className="w-full text-left text-xs sm:text-sm">
           <thead className="bg-cream text-navy-900">
             <tr>
               {feeStructure.columns.map((c, i) => (
-                <th key={c} className={`px-5 py-3.5 font-semibold ${i ? "text-right" : ""}`}>
+                <th key={c} className={`px-2 py-3 align-bottom font-semibold leading-tight sm:px-5 sm:py-3.5 ${i ? "text-right" : ""}`}>
                   {c}
-                  {i > 0 && <span className="ml-1 text-xs font-normal text-muted">(₹)</span>}
+                  {i > 0 && <span className="ml-1 hidden text-xs font-normal text-muted sm:inline">(₹)</span>}
                 </th>
               ))}
             </tr>
@@ -28,9 +28,9 @@ export default function FeeTable() {
           <tbody>
             {feeStructure.rows.map(([cls, ...nums]) => (
               <tr key={cls} className="border-t border-slate-100 odd:bg-slate-50/60">
-                <td className="px-5 py-3 font-semibold text-navy-900">{cls}</td>
+                <td className="px-2 py-2.5 font-semibold text-navy-900 sm:px-5 sm:py-3">{cls}</td>
                 {nums.map((n, j) => (
-                  <td key={j} className={`px-5 py-3 text-right tabular-nums ${j === nums.length - 1 ? "font-bold text-brand-600" : "text-navy-900"}`}>{inr(n)}</td>
+                  <td key={j} className={`px-2 py-2.5 text-right tabular-nums sm:px-5 sm:py-3 ${j === nums.length - 1 ? "font-bold text-brand-600" : "text-navy-900"}`}>{inr(n)}</td>
                 ))}
               </tr>
             ))}

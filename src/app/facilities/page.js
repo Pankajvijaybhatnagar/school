@@ -7,6 +7,8 @@ import Button from "@/components/ui/Button";
 import GalleryGrid from "@/components/sections/GalleryGrid";
 import VideoGrid from "@/components/sections/VideoGrid";
 import StatsBand from "@/components/sections/StatsBand";
+import FacilityShowcase from "@/components/sections/FacilityShowcase";
+import { campusGallery } from "@/data/images";
 import { facilities } from "@/data/site";
 
 export const metadata = {
@@ -17,7 +19,7 @@ export const metadata = {
 export default function FacilitiesPage() {
   return (
     <>
-      <PageHero
+      <PageHero image="/images/photos/campus-front.jpg"
         title="Our"
         highlight="Facilities"
         subtitle="The campus ‘Sigma Vidya Kunj’ at Pandu Pindara, Gohana Road, Jind."
@@ -46,19 +48,26 @@ export default function FacilitiesPage() {
         </div>
       </section>
 
+      <section className="bg-cream py-24">
+        <div className="container-x">
+          <SectionHeading eyebrow="Inside Our Campus" title="A Closer" highlight="Look" text="Real moments from our labs, library, classrooms and playgrounds." />
+          <FacilityShowcase />
+        </div>
+      </section>
+
       <StatsBand />
 
-      <section className="bg-cream py-20">
+      <section className="py-20">
         <div className="container-x">
           <SectionHeading eyebrow="Campus Tour" title="See Our" highlight="Infrastructure" text="The inspection video of the school covering its infrastructure." />
           <VideoGrid />
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="bg-cream py-20">
         <div className="container-x">
           <SectionHeading eyebrow="Glimpses" title="Campus" highlight="Gallery" />
-          <GalleryGrid limit={8} filters={false} />
+          <GalleryGrid items={campusGallery} limit={10} filters={false} layout="bento" />
           <div className="mt-10 text-center">
             <Button href="/gallery" variant="navy">View Full Gallery <ArrowRight className="h-4 w-4" /></Button>
           </div>

@@ -18,22 +18,22 @@ function ResultCard({ cls, rows, delay }) {
         ))}
       </div>
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[420px] text-left text-sm">
+        <table className="w-full text-left text-xs sm:text-sm">
           <thead className="bg-cream text-navy-900">
             <tr>
-              <th className="px-5 py-3 font-semibold">Year</th>
-              <th className="px-5 py-3 font-semibold">Registered</th>
-              <th className="px-5 py-3 font-semibold">Passed</th>
-              <th className="px-5 py-3 font-semibold">Pass %</th>
+              <th className="px-3 py-3 sm:px-5 font-semibold">Year</th>
+              <th className="px-3 py-3 sm:px-5 font-semibold">Registered</th>
+              <th className="px-3 py-3 sm:px-5 font-semibold">Passed</th>
+              <th className="px-3 py-3 sm:px-5 font-semibold">Pass %</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((r) => (
               <tr key={r.year} className="border-t border-slate-100">
-                <td className="px-5 py-3 font-semibold text-muted">{r.year}</td>
-                <td className="px-5 py-3 text-navy-900">{r.registered}</td>
-                <td className="px-5 py-3 text-navy-900">{r.passed}</td>
-                <td className="px-5 py-3 font-bold text-navy-900">{r.pct}</td>
+                <td className="px-3 py-3 sm:px-5 font-semibold text-muted">{r.year}</td>
+                <td className="px-3 py-3 sm:px-5 text-navy-900">{r.registered}</td>
+                <td className="px-3 py-3 sm:px-5 text-navy-900">{r.passed}</td>
+                <td className="px-3 py-3 sm:px-5 font-bold text-navy-900">{r.pct}</td>
               </tr>
             ))}
           </tbody>
