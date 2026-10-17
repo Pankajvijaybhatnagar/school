@@ -6,7 +6,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { photo } from "@/data/photos";
 
 const tiles = [
-  { title: "Science Laboratories", text: "Physics, chemistry and biology — learnt by doing.", image: "science-lab-4", href: "/facilities#labs", span: "md:col-span-2 md:row-span-2" },
+  { title: "Science Laboratories", text: "Physics, chemistry and biology — learnt by doing.", image: "physics-practical", href: "/facilities#labs", span: "md:col-span-2 md:row-span-2" },
   { title: "Computer Lab", text: "A computer for every learner.", image: "computer-lab-3", href: "/facilities#computers" },
   { title: "Library", text: "Shelves full of stories and knowledge.", image: "library", href: "/facilities#library" },
   { title: "Pre-Primary Play Zone", text: "Colourful rooms where little ones learn through play.", image: "kids-play-slides-2", href: "/facilities#pre-primary", span: "md:row-span-2" },

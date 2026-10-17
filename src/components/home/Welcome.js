@@ -14,10 +14,14 @@ export default function Welcome() {
             {/* gold outline — evenly 12px around the main photo */}
             <div className="absolute -left-3 -top-3 h-[calc(70%+1.5rem)] w-[calc(80%+1.5rem)] border border-gold-500/50" />
             {/* main photo */}
-            <SmartImage src="welcome" alt="Gurukul Vidyapeeth campus" label="Campus Photo" className="absolute left-0 top-0 h-[70%] w-[80%] rounded-sm shadow-xl" />
+            <SmartImage src="welcome" alt="Gurukul Vidyapeeth students in traditional Haryanvi dress" label="Students" className="absolute left-0 top-0 h-[70%] w-[80%] rounded-sm shadow-xl" />
             {/* second photo — framed at its own 3:2 ratio so nobody is cut off */}
             <div className="absolute bottom-0 right-0 w-[58%] bg-ivory p-2 shadow-2xl shadow-maroon-900/20 sm:p-2.5">
-              <SmartImage src="welcome2" alt="Students in the science laboratory" label="Students" className="aspect-[3/2] w-full rounded-sm" />
+              <SmartImage src="welcome2" alt="Teacher guiding junior students in class" label="Students" className="aspect-[3/2] w-full rounded-sm" />
+            </div>
+            {/* third photo — small tilted portrait frame in the top-right corner */}
+            <div className="absolute right-0 top-[6%] w-[30%] rotate-3 bg-ivory p-1.5 shadow-2xl shadow-maroon-900/25 ring-1 ring-gold-500/40 sm:p-2">
+              <SmartImage src="welcome3" alt="Students forming a yoga pyramid on stage" label="Yoga" className="aspect-[3/4] w-full rounded-sm" />
             </div>
             {/* logo badge on the corner where the two photos meet */}
             <div className="absolute bottom-[38.7%] right-[58%] hidden h-16 w-16 sm:grid translate-x-1/2 translate-y-1/2 place-items-center rounded-full bg-ivory p-1.5 shadow-xl ring-1 ring-gold-500/40 sm:h-20 sm:w-20">

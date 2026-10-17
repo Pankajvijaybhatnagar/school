@@ -20,8 +20,8 @@ const slides = [
   {
     key: "welcome",
     tab: "Gurukul Vidyapeeth",
-    bg: photo("campus-building"),
-    image: photo("science-lab-4"),
+    bg: photo("smart-classroom"),
+    image: photo("havan-2"),
     icon: Flame,
     eyebrow: "Shri Lajja Ram Bashesar Dass",
     title: (
@@ -36,8 +36,9 @@ const slides = [
   {
     key: "results",
     tab: "Board Results",
-    bg: photo("science-lab"),
+    bg: photo("felicitation"),
     image: photo("graduation-3"),
+    inset: photo("class-senior"),
     icon: Trophy,
     eyebrow: `CBSE Board Results ${latestX.year}`,
     title: (
@@ -340,6 +341,22 @@ export default function HeroSlider() {
                 </motion.div>
               </AnimatePresence>
             </div>
+
+            {/* second framed photo, for slides that have one */}
+            <AnimatePresence>
+              {s.inset && (
+                <motion.div
+                  key={s.key}
+                  initial={{ opacity: 0, y: 24, rotate: 0 }}
+                  animate={{ opacity: 1, y: 0, rotate: 3 }}
+                  exit={{ opacity: 0, y: 12 }}
+                  transition={{ duration: 0.6, delay: 0.5, ease: EASE }}
+                  className="absolute -right-6 bottom-32 w-44 border-[5px] border-ivory bg-cream shadow-2xl shadow-maroon-950/50 ring-1 ring-gold-500/60 xl:-right-14 xl:w-52"
+                >
+                  <SmartImage src={s.inset} alt="Senior students in class" variant="light" className="aspect-[4/3]" />
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             {/* seal */}
             <div className="absolute -right-3 top-10 xl:-right-10">

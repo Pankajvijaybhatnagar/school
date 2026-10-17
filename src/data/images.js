@@ -16,8 +16,9 @@ export const images = {
   viceChairman: "/images/people/vice-chairman.webp",
 
   // Campus photos
-  welcome: photo("campus-students-walk"),
-  welcome2: thumb("science-lab-4"),
+  welcome: photo("dance-mustard-field"),
+  welcome2: thumb("class-junior"),
+  welcome3: thumb("yoga-3"),
   statsBg: photo("campus-panorama"),
 };
 
