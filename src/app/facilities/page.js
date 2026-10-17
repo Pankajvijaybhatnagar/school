@@ -32,13 +32,13 @@ export default function FacilitiesPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {facilities.map((f, i) => (
               <Reveal key={f.title} delay={(i % 4) * 0.1}>
-                <div className="group relative h-full overflow-hidden rounded-3xl bg-white p-8 shadow-lg shadow-navy-900/5 ring-1 ring-slate-100 card-lift">
-                  <span className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gold-100 transition-all duration-500 group-hover:scale-[5] group-hover:bg-navy-900" />
+                <div className="group relative h-full overflow-hidden rounded-3xl bg-ivory p-8 shadow-lg shadow-maroon-900/5 ring-1 ring-line card-lift">
+                  <span className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gold-100 transition-all duration-500 group-hover:scale-[5] group-hover:bg-maroon-900" />
                   <div className="relative">
-                    <span className="grid h-16 w-16 place-items-center rounded-2xl bg-navy-800 text-white shadow-lg transition group-hover:rotate-6">
+                    <span className="grid h-16 w-16 place-items-center rounded-2xl bg-maroon-800 text-white shadow-lg transition group-hover:rotate-6">
                       <Icon name={f.icon} className="h-8 w-8" />
                     </span>
-                    <h3 className="mt-6 text-xl font-semibold text-navy-900 transition group-hover:text-white">{f.title}</h3>
+                    <h3 className="mt-6 text-xl font-semibold text-maroon-900 transition group-hover:text-white">{f.title}</h3>
                     <p className="mt-2 text-sm leading-7 text-muted transition group-hover:text-white/80">{f.text}</p>
                   </div>
                 </div>
@@ -69,7 +69,7 @@ export default function FacilitiesPage() {
           <SectionHeading eyebrow="Glimpses" title="Campus" highlight="Gallery" />
           <GalleryGrid items={campusGallery} limit={10} filters={false} layout="bento" />
           <div className="mt-10 text-center">
-            <Button href="/gallery" variant="navy">View Full Gallery <ArrowRight className="h-4 w-4" /></Button>
+            <Button href="/gallery" variant="maroon">View Full Gallery <ArrowRight className="h-4 w-4" /></Button>
           </div>
         </div>
       </section>

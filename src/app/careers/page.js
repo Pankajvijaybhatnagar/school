@@ -39,9 +39,9 @@ export default function CareersPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {perks.map((p, i) => (
               <Reveal key={p.title} delay={i * 0.08}>
-                <div className="h-full rounded-3xl bg-white p-7 shadow-lg shadow-navy-900/5 ring-1 ring-slate-100 card-lift">
-                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-navy-800 text-gold-400"><p.icon className="h-7 w-7" /></span>
-                  <h3 className="mt-5 text-lg font-semibold text-navy-900">{p.title}</h3>
+                <div className="h-full rounded-3xl bg-ivory p-7 shadow-lg shadow-maroon-900/5 ring-1 ring-line card-lift">
+                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-maroon-800 text-gold-400"><p.icon className="h-7 w-7" /></span>
+                  <h3 className="mt-5 text-lg font-semibold text-maroon-900">{p.title}</h3>
                   <p className="mt-2 text-sm leading-7 text-muted">{p.text}</p>
                 </div>
               </Reveal>
@@ -57,10 +57,10 @@ export default function CareersPage() {
             <p className="-mt-6 mb-6 text-sm text-muted">Current openings may vary. Apply with your resume and we&apos;ll match you with the right role.</p>
             <ul className="space-y-3">
               {roles.map((r) => (
-                <li key={r.title} className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gold-100 text-brand-600"><Briefcase className="h-5 w-5" /></span>
+                <li key={r.title} className="flex items-center gap-4 rounded-2xl bg-ivory p-4 shadow-sm ring-1 ring-line">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gold-100 text-saffron-600"><Briefcase className="h-5 w-5" /></span>
                   <div>
-                    <p className="font-bold text-navy-900">{r.title}</p>
+                    <p className="font-bold text-maroon-900">{r.title}</p>
                     <p className="text-xs text-muted">{r.desc}</p>
                   </div>
                 </li>
@@ -68,8 +68,8 @@ export default function CareersPage() {
             </ul>
           </Reveal>
           <Reveal from="left" className="lg:col-span-3">
-            <div className="rounded-2xl bg-white p-6 shadow-xl shadow-navy-900/10 sm:p-10">
-              <h3 className="text-2xl font-semibold text-navy-900">Apply Now</h3>
+            <div className="rounded-2xl bg-ivory p-6 shadow-xl shadow-maroon-900/10 sm:p-10">
+              <h3 className="text-2xl font-semibold text-maroon-900">Apply Now</h3>
               <p className="mb-6 mt-1 text-sm text-muted">Fill in your details — fields marked * are required.</p>
               <CareerForm />
             </div>

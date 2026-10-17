@@ -7,15 +7,15 @@ import { feeStructure, primaryContact, school } from "@/data/site";
 
 export default function AdmissionBanner() {
   return (
-    <section className="bg-white py-24">
+    <section className="bg-ivory py-24">
       <div className="container-x">
-        <div className="relative grid overflow-hidden rounded-2xl bg-navy-800 lg:grid-cols-[1.3fr_1fr]">
+        <div className="relative grid overflow-hidden rounded-2xl bg-maroon-800 lg:grid-cols-[1.3fr_1fr]">
           <div className="absolute inset-0 bg-dots opacity-30" />
           <Reveal className="relative p-8 text-white sm:p-14">
-            <span className="inline-flex items-center gap-2 rounded-md bg-gold-500 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-navy-950">
+            <span className="inline-flex items-center gap-2 rounded-md bg-gold-500 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-maroon-950">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-600" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-600" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-saffron-600" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-saffron-600" />
               </span>
               Session {feeStructure.session}
             </span>
@@ -25,13 +25,13 @@ export default function AdmissionBanner() {
               Admissions are open from Nursery to Class XII in Hindi and English medium, including the Science stream in Classes XI and XII. Registration charges are just ₹500 for every class.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <EnquiryButton className="bg-gold-500 text-navy-950 shadow-xl shadow-navy-900/10 hover:bg-gold-400">
+              <EnquiryButton className="bg-gold-500 text-maroon-950 shadow-xl shadow-maroon-900/10 hover:bg-gold-400">
                 Admission Enquiry <ArrowRight className="h-4 w-4" />
               </EnquiryButton>
-              <Link href="/admission#fees" className="inline-flex items-center gap-2 rounded-md border-2 border-white/60 px-6 py-3 text-sm font-bold transition hover:bg-white hover:text-navy-900">
+              <Link href="/admission#fees" className="inline-flex items-center gap-2 rounded-md border-2 border-white/60 px-6 py-3 text-sm font-bold transition hover:bg-ivory hover:text-maroon-900">
                 <ReceiptIndianRupee className="h-4 w-4" /> Fee Structure
               </Link>
-              <a href={`tel:${primaryContact.tel}`} className="inline-flex items-center gap-2 rounded-md border-2 border-white/60 px-6 py-3 text-sm font-bold transition hover:bg-white hover:text-navy-900">
+              <a href={`tel:${primaryContact.tel}`} className="inline-flex items-center gap-2 rounded-md border-2 border-white/60 px-6 py-3 text-sm font-bold transition hover:bg-ivory hover:text-maroon-900">
                 <Phone className="h-4 w-4" /> {primaryContact.phone}
               </a>
             </div>

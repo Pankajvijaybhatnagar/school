@@ -17,9 +17,9 @@ export default function DownloadsList() {
           <button
             key={c}
             onClick={() => setCat(c)}
-            className={`relative rounded-md px-5 py-2 text-sm font-semibold transition ${cat === c ? "text-white" : "bg-white text-navy-800 ring-1 ring-slate-200 hover:ring-navy-600"}`}
+            className={`relative rounded-md px-5 py-2 text-sm font-semibold transition ${cat === c ? "text-white" : "bg-ivory text-maroon-800 ring-1 ring-line hover:ring-maroon-600"}`}
           >
-            {cat === c && <motion.span layoutId="dl-pill" className="absolute inset-0 rounded-full bg-navy-800" />}
+            {cat === c && <motion.span layoutId="dl-pill" className="absolute inset-0 rounded-full bg-maroon-800" />}
             <span className="relative">{c}</span>
           </button>
         ))}
@@ -33,22 +33,22 @@ export default function DownloadsList() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="group flex flex-col rounded-3xl bg-white p-6 shadow-lg shadow-navy-900/5 ring-1 ring-slate-100 card-lift"
+              className="group flex flex-col rounded-3xl bg-ivory p-6 shadow-lg shadow-maroon-900/5 ring-1 ring-line card-lift"
             >
               <div className="flex items-start justify-between">
-                <span className="grid h-14 w-14 place-items-center rounded-2xl bg-navy-800 text-white shadow-lg">
+                <span className="grid h-14 w-14 place-items-center rounded-2xl bg-maroon-800 text-white shadow-lg">
                   <FileText className="h-7 w-7" />
                 </span>
-                <span className="rounded-md bg-gold-100 px-3 py-1 text-xs font-bold text-navy-900">{d.category}</span>
+                <span className="rounded-md bg-gold-100 px-3 py-1 text-xs font-bold text-maroon-900">{d.category}</span>
               </div>
-              <h3 className="mt-5 text-lg font-semibold text-navy-900">{d.title}</h3>
+              <h3 className="mt-5 text-lg font-semibold text-maroon-900">{d.title}</h3>
               <p className="text-xs font-semibold uppercase tracking-wider text-muted">{d.type || "PDF"} Document</p>
               <a
                 href={d.file}
                 target="_blank"
                 rel="noopener noreferrer"
                 download
-                className="mt-6 inline-flex items-center justify-center gap-2 rounded-md bg-navy-800 px-5 py-2.5 text-sm font-bold text-white transition group-hover:bg-brand-600"
+                className="mt-6 inline-flex items-center justify-center gap-2 rounded-md bg-maroon-800 px-5 py-2.5 text-sm font-bold text-white transition group-hover:bg-saffron-600"
               >
                 <Download className="h-4 w-4" /> Download
               </a>

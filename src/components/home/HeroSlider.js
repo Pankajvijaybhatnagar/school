@@ -96,7 +96,7 @@ function Extra({ type }) {
       ...boardResults.XII.map((r) => ({ ...r, cls: "XII" })),
     ];
     return (
-      <div className="grid max-w-2xl grid-cols-3 border border-white/15 bg-navy-950/40 backdrop-blur-sm sm:grid-cols-6">
+      <div className="grid max-w-2xl grid-cols-3 border border-white/15 bg-maroon-950/40 backdrop-blur-sm sm:grid-cols-6">
         {rows.map((b, i) => (
           <motion.div
             key={`${b.cls}-${b.year}`}
@@ -155,7 +155,7 @@ function Extra({ type }) {
 function Seal() {
   return (
     <div className="relative h-36 w-36">
-      <div className="absolute inset-0 rounded-full bg-navy-900 shadow-2xl shadow-navy-950/50 ring-1 ring-gold-500/60" />
+      <div className="absolute inset-0 rounded-full bg-maroon-900 shadow-2xl shadow-maroon-950/50 ring-1 ring-gold-500/60" />
       <motion.svg
         viewBox="0 0 200 200"
         className="absolute inset-0 h-full w-full"
@@ -215,7 +215,7 @@ export default function HeroSlider() {
 
   return (
     <section
-      className="relative overflow-hidden bg-navy-950 text-white"
+      className="relative overflow-hidden bg-maroon-950 text-white"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onKeyDown={(e) => {
@@ -248,13 +248,13 @@ export default function HeroSlider() {
             animate={{ scale: 1 }}
             transition={{ duration: DURATION / 1000 + 2, ease: "linear" }}
           >
-            <SmartImage src={s.bg} alt="" className="absolute inset-0" variant="navy" priority />
+            <SmartImage src={s.bg} alt="" className="absolute inset-0" variant="maroon" priority />
           </motion.div>
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/80 to-navy-950/35" />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-transparent to-navy-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-maroon-950 via-maroon-950/80 to-maroon-950/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-maroon-950/90 via-transparent to-maroon-950/40" />
         </motion.div>
       </AnimatePresence>
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,rgb(176_141_87/0.16),transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,rgb(198_145_53/0.16),transparent_55%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(135deg,rgb(255_255_255/0.025)_0_1px,transparent_1px_14px)]" />
       <Corners />
 
@@ -300,15 +300,15 @@ export default function HeroSlider() {
                 className="mt-9 flex flex-wrap gap-3"
               >
                 {s.cta.enquiry ? (
-                  <button onClick={openEnquiry} className={`${buttonBase} bg-gold-500 text-white hover:bg-gold-400`}>
+                  <button onClick={openEnquiry} className={`${buttonBase} bg-saffron-600 text-white hover:bg-saffron-500`}>
                     {s.cta.label} <ArrowRight className="h-4 w-4" />
                   </button>
                 ) : (
-                  <Link href={s.cta.href} className={`${buttonBase} bg-gold-500 text-white hover:bg-gold-400`}>
+                  <Link href={s.cta.href} className={`${buttonBase} bg-saffron-600 text-white hover:bg-saffron-500`}>
                     {s.cta.label} <ArrowRight className="h-4 w-4" />
                   </Link>
                 )}
-                <button onClick={openEnquiry} className={`${buttonBase} border border-white/40 text-white hover:border-white hover:bg-white hover:text-navy-900`}>
+                <button onClick={openEnquiry} className={`${buttonBase} border border-white/40 text-white hover:border-white hover:bg-ivory hover:text-maroon-900`}>
                   Admission Enquiry
                 </button>
               </motion.div>
@@ -326,7 +326,7 @@ export default function HeroSlider() {
             {/* offset gold outline */}
             <div className="absolute -inset-3 rounded-t-full border border-gold-500/60" />
             {/* arch photo */}
-            <div className="absolute inset-0 overflow-hidden rounded-t-full border-[6px] border-white/95 bg-cream shadow-2xl shadow-navy-950/60">
+            <div className="absolute inset-0 overflow-hidden rounded-t-full border-[6px] border-white/95 bg-cream shadow-2xl shadow-maroon-950/60">
               <AnimatePresence mode="sync">
                 <motion.div
                   key={s.key}
@@ -354,7 +354,7 @@ export default function HeroSlider() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 12 }}
                 transition={{ duration: 0.6, delay: 0.35, ease: EASE }}
-                className="absolute -left-6 bottom-12 w-60 xl:-left-14 border-t-2 border-gold-500 bg-white p-5 text-navy-900 shadow-2xl shadow-navy-950/40"
+                className="absolute -left-6 bottom-12 w-60 xl:-left-14 border-t-2 border-gold-500 bg-ivory p-5 text-maroon-900 shadow-2xl shadow-maroon-950/40"
               >
                 <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-gold-500">{s.card.label}</p>
                 <p className={`mt-2 leading-none ${s.card.hindi ? "font-hindi text-3xl" : "font-display text-4xl font-semibold"}`}>
@@ -370,7 +370,7 @@ export default function HeroSlider() {
       </div>
 
       {/* Slide tabs */}
-      <div className="absolute inset-x-0 bottom-0 border-t border-white/10 bg-navy-950/60 backdrop-blur-sm">
+      <div className="absolute inset-x-0 bottom-0 border-t border-white/10 bg-maroon-950/60 backdrop-blur-sm">
         <div className="container-x flex items-stretch">
           <div className="hidden flex-1 grid-cols-4 xl:grid">
             {slides.map((sl, k) => (
@@ -411,7 +411,7 @@ export default function HeroSlider() {
           </div>
 
           <div className="flex items-center gap-2 pl-4">
-            <button onClick={() => go(-1)} aria-label="Previous slide" className="grid h-10 w-10 place-items-center border border-white/25 transition hover:border-white hover:bg-white hover:text-navy-900">
+            <button onClick={() => go(-1)} aria-label="Previous slide" className="grid h-10 w-10 place-items-center border border-white/25 transition hover:border-white hover:bg-ivory hover:text-maroon-900">
               <ChevronLeft className="h-4 w-4" />
             </button>
             <button onClick={() => go(1)} aria-label="Next slide" className="grid h-10 w-10 place-items-center bg-gold-500 transition hover:bg-gold-400">

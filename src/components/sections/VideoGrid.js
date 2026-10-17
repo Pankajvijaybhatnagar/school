@@ -11,11 +11,11 @@ function Card({ v, big = false, onOpen }) {
   return (
     <button
       onClick={() => onOpen(v)}
-      className={`group relative block w-full overflow-hidden rounded-3xl text-left shadow-xl shadow-navy-900/10 ${big ? "aspect-video lg:aspect-auto lg:h-full" : "aspect-video"}`}
+      className={`group relative block w-full overflow-hidden rounded-3xl text-left shadow-xl shadow-maroon-900/10 ${big ? "aspect-video lg:aspect-auto lg:h-full" : "aspect-video"}`}
     >
-      <SmartImage src={v.image || (v.id && `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`)} alt={v.title} className="absolute inset-0 transition duration-700 group-hover:scale-110" variant="navy" />
-      <div className="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-950/30 to-transparent" />
-      <span className="absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/70 bg-navy-950/30 text-white backdrop-blur-sm transition duration-300 group-hover:border-gold-400 group-hover:bg-gold-500">
+      <SmartImage src={v.image || (v.id && `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`)} alt={v.title} className="absolute inset-0 transition duration-700 group-hover:scale-110" variant="maroon" />
+      <div className="absolute inset-0 bg-gradient-to-t from-maroon-950/95 via-maroon-950/30 to-transparent" />
+      <span className="absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/70 bg-maroon-950/30 text-white backdrop-blur-sm transition duration-300 group-hover:border-gold-400 group-hover:bg-gold-500">
         <Play className="ml-1 h-6 w-6 fill-white" />
       </span>
       <div className="absolute inset-x-0 bottom-0 p-5">
@@ -61,7 +61,7 @@ export default function VideoGrid({ items = videos, featured = true }) {
       <AnimatePresence>
         {active && (
           <motion.div
-            className="fixed inset-0 z-[85] flex items-center justify-center bg-navy-950/90 p-4 backdrop-blur"
+            className="fixed inset-0 z-[85] flex items-center justify-center bg-maroon-950/90 p-4 backdrop-blur"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -74,10 +74,10 @@ export default function VideoGrid({ items = videos, featured = true }) {
               className="relative w-full max-w-5xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <button onClick={() => setActive(null)} aria-label="Close video" className="absolute -top-12 right-0 grid h-10 w-10 place-items-center rounded-full bg-white text-navy-900">
+              <button onClick={() => setActive(null)} aria-label="Close video" className="absolute -top-12 right-0 grid h-10 w-10 place-items-center rounded-full bg-ivory text-maroon-900">
                 <X className="h-5 w-5" />
               </button>
-              <div className="aspect-video overflow-hidden rounded-2xl bg-black">
+              <div className="aspect-video overflow-hidden rounded-2xl bg-maroon-950">
                 {active.id ? (
                   <iframe
                     className="h-full w-full"

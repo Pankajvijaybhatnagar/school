@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 const styles = {
-  primary: "bg-brand-600 text-white hover:bg-brand-700",
-  gold: "bg-gold-500 text-white hover:bg-gold-400",
-  navy: "bg-navy-800 text-white hover:bg-navy-900",
-  outline: "border border-white/60 text-white hover:bg-white hover:text-navy-900",
-  ghost: "border border-navy-800 text-navy-800 hover:bg-navy-800 hover:text-white",
+  primary: "bg-saffron-600 text-white hover:bg-maroon-900",
+  gold: "bg-gold-500 text-maroon-950 hover:bg-gold-400",
+  maroon: "bg-maroon-900 text-white hover:bg-saffron-600",
+  outline: "border border-white/60 text-white hover:bg-ivory hover:text-maroon-900",
+  ghost: "border border-maroon-900 text-maroon-900 hover:bg-maroon-900 hover:text-white",
 };
 
 export const buttonBase =

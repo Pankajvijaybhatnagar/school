@@ -14,7 +14,7 @@ export default function PhotoStrip({ items = [...featuredGallery, ...extra] }) {
         {[...items, ...items].map((g, i) => (
           <figure key={i} className="relative h-56 w-80 shrink-0 overflow-hidden rounded-2xl shadow-lg sm:h-64 sm:w-96">
             <SmartImage src={g.src} alt="" className="absolute inset-0" priority />
-            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-950/85 to-transparent p-4 pt-10 text-sm font-semibold text-white">
+            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-maroon-950/85 to-transparent p-4 pt-10 text-sm font-semibold text-white">
               {g.title}
             </figcaption>
           </figure>

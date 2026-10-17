@@ -11,9 +11,9 @@ export default function PageHero({ title, highlight, subtitle, crumbs = [], imag
     <section className="relative overflow-hidden bg-mesh text-white">
       {image && (
         <>
-          <SmartImage src={image} alt="" className="absolute inset-0 animate-hero-zoom" imgClassName={positions[position]} variant="navy" priority />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-950/85 via-navy-950/70 to-navy-950/90" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgb(10_20_38/0.6)_100%)]" />
+          <SmartImage src={image} alt="" className="absolute inset-0 animate-hero-zoom" imgClassName={positions[position]} variant="maroon" priority />
+          <div className="absolute inset-0 bg-gradient-to-b from-maroon-950/85 via-maroon-950/70 to-maroon-950/90" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgb(68_13_6/0.6)_100%)]" />
         </>
       )}
       <div className="absolute inset-x-0 top-0 h-px bg-gold-500/40" />
@@ -33,7 +33,7 @@ export default function PageHero({ title, highlight, subtitle, crumbs = [], imag
             ))}
           </nav>
           <h1 className="mx-auto max-w-4xl text-4xl font-semibold leading-tight drop-shadow-lg sm:text-5xl lg:text-6xl">
-            {title} {highlight && <span className="text-gradient">{highlight}</span>}
+            {title} {highlight && <span className="text-gradient-light">{highlight}</span>}
           </h1>
           <div className="mt-6"><Ornament light /></div>
           {subtitle && <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">{subtitle}</p>}

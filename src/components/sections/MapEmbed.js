@@ -1,6 +1,6 @@
 export default function MapEmbed({ query, title = "Location map", className = "" }) {
   return (
-    <div className={`overflow-hidden rounded-3xl shadow-xl ring-1 ring-slate-200 ${className}`}>
+    <div className={`overflow-hidden rounded-3xl shadow-xl ring-1 ring-line ${className}`}>
       <iframe
         title={title}
         src={`https://maps.google.com/maps?q=${encodeURIComponent(query)}&z=14&output=embed`}

@@ -44,11 +44,11 @@ export default function AcademicsPage() {
           <div className="grid gap-6 md:grid-cols-3">
             {curriculum.map((c, i) => (
               <Reveal key={c.title} delay={i * 0.1}>
-                <div className="group flex h-full flex-col rounded-3xl bg-white p-8 shadow-lg shadow-navy-900/5 ring-1 ring-slate-100 card-lift">
-                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-navy-800 text-white shadow-lg transition group-hover:rotate-6">
+                <div className="group flex h-full flex-col rounded-3xl bg-ivory p-8 shadow-lg shadow-maroon-900/5 ring-1 ring-line card-lift">
+                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-maroon-800 text-white shadow-lg transition group-hover:rotate-6">
                     <c.icon className="h-7 w-7" />
                   </span>
-                  <h3 className="mt-6 text-xl font-semibold text-navy-900">{c.title}</h3>
+                  <h3 className="mt-6 text-xl font-semibold text-maroon-900">{c.title}</h3>
                   <p className="mt-3 flex-1 text-sm leading-7 text-muted">{c.text}</p>
                 </div>
               </Reveal>
@@ -67,7 +67,7 @@ export default function AcademicsPage() {
                 <div className="group h-full overflow-hidden rounded-3xl glass text-center transition hover:-translate-y-1 hover:bg-white/15">
                   <div className="relative">
                     <SmartImage src={thumb(s.image)} alt={s.title} label={s.title} className="aspect-[4/3] transition duration-700 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/10 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-maroon-900 via-maroon-900/10 to-transparent" />
                     <p className="absolute bottom-2 left-0 right-0 font-display text-4xl font-semibold text-gold-400 drop-shadow">0{i + 1}</p>
                   </div>
                   <div className="p-5 pt-3">
@@ -103,10 +103,10 @@ export default function AcademicsPage() {
                 <div className="group h-full overflow-hidden rounded-3xl bg-cream ring-1 ring-gold-500/20 card-lift">
                   <SmartImage src={thumb(c.image)} alt={c.title} label={c.title} className="aspect-[16/10] transition duration-700 group-hover:scale-105" />
                   <div className="relative p-8 pt-10">
-                    <span className="absolute -top-7 left-8 grid h-14 w-14 place-items-center rounded-2xl bg-navy-800 text-gold-400 shadow-lg ring-4 ring-cream">
+                    <span className="absolute -top-7 left-8 grid h-14 w-14 place-items-center rounded-2xl bg-maroon-800 text-gold-400 shadow-lg ring-4 ring-cream">
                       <c.icon className="h-7 w-7" />
                     </span>
-                    <h3 className="text-xl font-semibold text-navy-900">{c.title}</h3>
+                    <h3 className="text-xl font-semibold text-maroon-900">{c.title}</h3>
                     <p className="mt-3 text-sm leading-7 text-muted">{c.text}</p>
                   </div>
                 </div>

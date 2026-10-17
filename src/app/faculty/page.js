@@ -50,10 +50,10 @@ export default function FacultyPage() {
           <div className="grid gap-6 md:grid-cols-3">
             {support.map((q, i) => (
               <Reveal key={q.title} delay={i * 0.1}>
-                <div className="h-full rounded-3xl bg-white p-8 shadow-lg shadow-navy-900/5 ring-1 ring-slate-100 card-lift">
-                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gold-100 text-brand-600"><q.icon className="h-7 w-7" /></span>
-                  <p className="mt-5 font-display text-3xl font-bold text-navy-900">{q.value}</p>
-                  <h3 className="mt-1 text-lg font-semibold text-navy-900">{q.title}</h3>
+                <div className="h-full rounded-3xl bg-ivory p-8 shadow-lg shadow-maroon-900/5 ring-1 ring-line card-lift">
+                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gold-100 text-saffron-600"><q.icon className="h-7 w-7" /></span>
+                  <p className="mt-5 font-display text-3xl font-bold text-maroon-900">{q.value}</p>
+                  <h3 className="mt-1 text-lg font-semibold text-maroon-900">{q.title}</h3>
                   <p className="mt-2 text-sm leading-7 text-muted">{q.text}</p>
                 </div>
               </Reveal>

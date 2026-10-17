@@ -17,12 +17,12 @@ export default function SectionHeading({ eyebrow, title, highlight, text, light 
   return (
     <Reveal className={`mb-14 flex max-w-3xl flex-col ${center ? "mx-auto items-center text-center" : "items-start text-left"}`}>
       {eyebrow && (
-        <span className={`mb-4 text-xs font-semibold uppercase tracking-[0.28em] ${light ? "text-gold-400" : "text-gold-500"}`}>
+        <span className={`mb-4 text-xs font-semibold uppercase tracking-[0.28em] ${light ? "text-gold-400" : "text-saffron-500"}`}>
           {eyebrow}
         </span>
       )}
-      <h2 className={`text-3xl font-semibold leading-tight sm:text-4xl lg:text-[2.75rem] ${light ? "text-white" : "text-navy-900"}`}>
-        {title} {highlight && <span className="text-gradient">{highlight}</span>}
+      <h2 className={`text-3xl font-semibold leading-tight sm:text-4xl lg:text-[2.75rem] ${light ? "text-white" : "text-maroon-900"}`}>
+        {title} {highlight && <span className={light ? "text-gradient-light" : "text-gradient"}>{highlight}</span>}
       </h2>
       <div className="mt-5">
         <Ornament light={light} align={align} />

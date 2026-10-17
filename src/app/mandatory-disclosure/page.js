@@ -14,19 +14,19 @@ const NA = "To be uploaded";
 function Table({ head, rows }) {
   return (
     // On phones each row stacks into a small card so no column is cut off.
-    <div className="overflow-hidden rounded-2xl ring-1 ring-slate-200">
+    <div className="overflow-hidden rounded-2xl ring-1 ring-line">
       <table className="w-full text-left text-sm max-sm:block">
-        <thead className="bg-navy-800 text-white max-sm:hidden">
+        <thead className="bg-maroon-800 text-white max-sm:hidden">
           <tr>{head.map((h) => <th key={h} className="px-5 py-3.5 font-semibold">{h}</th>)}</tr>
         </thead>
         <tbody className="max-sm:block">
           {rows.map((r, i) => (
-            <tr key={i} className="border-b border-slate-100 odd:bg-slate-50 max-sm:block max-sm:px-4 max-sm:py-3">
+            <tr key={i} className="border-b border-line odd:bg-cream max-sm:block max-sm:px-4 max-sm:py-3">
               {r.map((cell, j) => (
                 <td
                   key={j}
                   className={`px-5 py-3 align-top break-words max-sm:block max-sm:p-0 ${
-                    j === 0 ? "w-16 text-muted max-sm:mb-1 max-sm:w-auto max-sm:text-[11px] max-sm:font-semibold max-sm:uppercase max-sm:tracking-wider max-sm:text-gold-500" : j === 1 ? "font-semibold text-muted max-sm:text-navy-900" : "text-navy-900 max-sm:mt-1 max-sm:text-muted"
+                    j === 0 ? "w-16 text-muted max-sm:mb-1 max-sm:w-auto max-sm:text-[11px] max-sm:font-semibold max-sm:uppercase max-sm:tracking-wider max-sm:text-gold-500" : j === 1 ? "font-semibold text-muted max-sm:text-maroon-900" : "text-maroon-900 max-sm:mt-1 max-sm:text-muted"
                   }`}
                 >
                   {j === 0 ? <><span className="sm:hidden">No. </span>{cell}</> : cell}
@@ -42,9 +42,9 @@ function Table({ head, rows }) {
 
 function Section({ letter, title, children }) {
   return (
-    <Reveal className="rounded-3xl bg-white p-6 shadow-lg shadow-navy-900/5 ring-1 ring-slate-100 sm:p-8">
-      <h2 className="mb-6 flex items-center gap-4 text-2xl font-semibold text-navy-900">
-        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-navy-800 font-display text-xl font-bold text-white">{letter}</span>
+    <Reveal className="rounded-3xl bg-ivory p-6 shadow-lg shadow-maroon-900/5 ring-1 ring-line sm:p-8">
+      <h2 className="mb-6 flex items-center gap-4 text-2xl font-semibold text-maroon-900">
+        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-maroon-800 font-display text-xl font-bold text-white">{letter}</span>
         {title}
       </h2>
       {children}
@@ -53,9 +53,9 @@ function Section({ letter, title, children }) {
 }
 
 function DocLink({ href, label = "View" }) {
-  if (!href) return <span className="italic text-slate-400">{NA}</span>;
+  if (!href) return <span className="italic text-muted">{NA}</span>;
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-md bg-navy-800 px-3 py-1.5 text-xs font-bold text-white transition hover:bg-brand-600">
+    <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-md bg-maroon-800 px-3 py-1.5 text-xs font-bold text-white transition hover:bg-saffron-600">
       <Download className="h-3.5 w-3.5" /> {label}
     </a>
   );
@@ -64,7 +64,7 @@ function DocLink({ href, label = "View" }) {
 function ResultTable({ cls, rows }) {
   return (
     <div className="min-w-0">
-      <h3 className="mb-3 text-lg font-semibold text-navy-900">Result Class {cls}</h3>
+      <h3 className="mb-3 text-lg font-semibold text-maroon-900">Result Class {cls}</h3>
       <Table
         head={["S.No.", "Year", "No. of Registered Students", "No. of Students Passed", "Pass Percentage", "Remarks"]}
         rows={rows.map((r, i) => [i + 1, r.year, r.registered, r.passed, r.pct, "—"])}
@@ -93,8 +93,8 @@ export default function MandatoryDisclosurePage() {
                 [3, "School Code (if applicable)", school.schoolCode],
                 [4, "Complete Address with Pin Code", school.address],
                 [5, "Principal Name & Qualification", `${principal.disclosureName} — ${principal.qualification}`],
-                [6, "School Email ID", <a key="m" href={`mailto:${primaryContact.email}`} className="text-brand-600 hover:underline">{primaryContact.email}</a>],
-                [7, "Contact Details (Landline/Mobile)", <a key="t" href={`tel:${primaryContact.tel}`} className="text-brand-600 hover:underline">{primaryContact.phone}</a>],
+                [6, "School Email ID", <a key="m" href={`mailto:${primaryContact.email}`} className="text-saffron-600 hover:underline">{primaryContact.email}</a>],
+                [7, "Contact Details (Landline/Mobile)", <a key="t" href={`tel:${primaryContact.tel}`} className="text-saffron-600 hover:underline">{primaryContact.phone}</a>],
               ]}
             />
           </Section>
@@ -104,10 +104,10 @@ export default function MandatoryDisclosurePage() {
               head={["Sl. No.", "Documents / Information", "Upload Documents"]}
               rows={documents.map((d, i) => [i + 1, d.title, <DocLink key={d.short} href={d.file} />])}
             />
-            <p className="mt-4 rounded-xl bg-gold-100 p-4 text-sm leading-relaxed text-navy-900">
+            <p className="mt-4 rounded-xl bg-gold-100 p-4 text-sm leading-relaxed text-maroon-900">
               <b>Note:</b> The schools need to upload the self attested copies of above listed documents by Chairman/Manager/Secretary and Principal. In case it is noticed at later stage that uploaded documents are not genuine then school shall be liable for action as per norms.
             </p>
-            <a href="/documents/affidavit-non-proprietary.pdf" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:underline">
+            <a href="/documents/affidavit-non-proprietary.pdf" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-saffron-600 hover:underline">
               <FileText className="h-4 w-4" /> Also available: Affidavit — Non-Proprietary Character of the Society (Appendix IV)
             </a>
           </Section>
@@ -158,7 +158,7 @@ export default function MandatoryDisclosurePage() {
                 [
                   7,
                   "Link of YouTube Video of the Inspection of School Covering the Infrastructure of the School",
-                  <a key="yt" href={infrastructure.inspectionVideo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 break-all text-brand-600 hover:underline">
+                  <a key="yt" href={infrastructure.inspectionVideo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 break-all text-saffron-600 hover:underline">
                     {infrastructure.inspectionVideo} <ExternalLink className="h-3.5 w-3.5 shrink-0" />
                   </a>,
                 ],

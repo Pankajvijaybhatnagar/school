@@ -31,13 +31,13 @@ export default function ContactPage() {
         <div className="container-x grid gap-5 md:grid-cols-3">
           {quick.map((q, i) => (
             <Reveal key={q.label} delay={i * 0.08}>
-              <a href={q.href} className="group flex items-center gap-5 rounded-3xl bg-white p-6 shadow-lg shadow-navy-900/5 ring-1 ring-slate-100 card-lift">
-                <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-navy-800 text-white transition group-hover:rotate-6">
+              <a href={q.href} className="group flex items-center gap-5 rounded-3xl bg-ivory p-6 shadow-lg shadow-maroon-900/5 ring-1 ring-line card-lift">
+                <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-maroon-800 text-white transition group-hover:rotate-6">
                   <q.icon className="h-6 w-6" />
                 </span>
                 <span className="min-w-0">
                   <span className="block text-xs font-bold uppercase tracking-widest text-muted">{q.label}</span>
-                  <span className="block truncate text-lg font-semibold text-navy-900">{q.value}</span>
+                  <span className="block truncate text-lg font-semibold text-maroon-900">{q.value}</span>
                 </span>
               </a>
             </Reveal>
@@ -63,7 +63,7 @@ export default function ContactPage() {
                   <li className="flex items-center gap-3"><PhoneCall className="h-5 w-5 shrink-0 text-gold-400" /><a href={`tel:${primaryContact.tel}`} className="font-bold hover:text-gold-400">{primaryContact.phone}</a></li>
                   <li className="flex items-center gap-3"><Mail className="h-5 w-5 shrink-0 text-gold-400" /><a href={`mailto:${primaryContact.email}`} className="hover:text-gold-400">{primaryContact.email}</a></li>
                 </ul>
-                <span className="mt-6 inline-block rounded-md bg-gold-500 px-4 py-1.5 text-xs font-bold text-navy-950">Admissions Open 2027-28</span>
+                <span className="mt-6 inline-block rounded-md bg-gold-500 px-4 py-1.5 text-xs font-bold text-maroon-950">Admissions Open 2027-28</span>
               </div>
             </Reveal>
             <MapEmbed query={school.mapQuery} title={`${school.fullName} map`} className="h-[420px] lg:col-span-3" />
@@ -73,7 +73,7 @@ export default function ContactPage() {
 
       <section className="py-20">
         <div className="container-x max-w-4xl">
-          <Reveal className="rounded-2xl bg-white p-6 shadow-xl shadow-navy-900/10 ring-1 ring-slate-100 sm:p-10">
+          <Reveal className="rounded-2xl bg-ivory p-6 shadow-xl shadow-maroon-900/10 ring-1 ring-line sm:p-10">
             <SectionHeading eyebrow="Write to Us" title="Send an" highlight="Enquiry" />
             <EnquiryForm />
           </Reveal>

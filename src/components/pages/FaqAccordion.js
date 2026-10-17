@@ -11,14 +11,14 @@ export default function FaqAccordion({ items }) {
       {items.map((f, i) => {
         const isOpen = open === i;
         return (
-          <div key={f.q} className={`overflow-hidden rounded-2xl bg-white ring-1 transition ${isOpen ? "shadow-xl shadow-navy-900/10 ring-brand-600/30" : "ring-slate-200"}`}>
+          <div key={f.q} className={`overflow-hidden rounded-2xl bg-ivory ring-1 transition ${isOpen ? "shadow-xl shadow-maroon-900/10 ring-saffron-600/30" : "ring-line"}`}>
             <button
               onClick={() => setOpen(isOpen ? -1 : i)}
               aria-expanded={isOpen}
-              className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-bold text-navy-900"
+              className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-bold text-maroon-900"
             >
               {f.q}
-              <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-full transition ${isOpen ? "rotate-45 bg-brand-600 text-white" : "bg-slate-100 text-navy-800"}`}>
+              <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-full transition ${isOpen ? "rotate-45 bg-saffron-600 text-white" : "bg-cream text-maroon-800"}`}>
                 <Plus className="h-4 w-4" />
               </span>
             </button>

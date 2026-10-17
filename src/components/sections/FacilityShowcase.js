@@ -76,7 +76,7 @@ export default function FacilityShowcase() {
                     src={photo(r.main)}
                     alt={r.title}
                     label={r.title}
-                    className="relative aspect-[4/3] w-full rounded-2xl shadow-2xl shadow-navy-900/20"
+                    className="relative aspect-[4/3] w-full rounded-2xl shadow-2xl shadow-maroon-900/20"
                   />
                 </div>
                 <div className={`absolute bottom-0 flex gap-3 ${flip ? "left-0" : "right-0"}`}>
@@ -88,12 +88,12 @@ export default function FacilityShowcase() {
             </Reveal>
             <Reveal from={flip ? "right" : "left"} className={flip ? "lg:order-1" : ""}>
               <span className="text-xs font-semibold uppercase tracking-[0.28em] text-gold-500">{r.eyebrow}</span>
-              <h3 className="mt-3 text-3xl font-semibold leading-tight text-navy-900 sm:text-4xl">{r.title}</h3>
+              <h3 className="mt-3 text-3xl font-semibold leading-tight text-maroon-900 sm:text-4xl">{r.title}</h3>
               <span className="mt-5 block h-px w-14 bg-gold-500" />
               <p className="mt-5 leading-8 text-muted">{r.text}</p>
               <ul className="mt-6 space-y-3">
                 {r.points.map((p) => (
-                  <li key={p} className="flex items-center gap-3 font-medium text-navy-900">
+                  <li key={p} className="flex items-center gap-3 font-medium text-maroon-900">
                     <CheckCircle2 className="h-5 w-5 shrink-0 text-gold-500" /> {p}
                   </li>
                 ))}

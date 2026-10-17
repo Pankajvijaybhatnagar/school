@@ -40,15 +40,15 @@ export default function AboutPage() {
           <Reveal from="right" className="lg:sticky lg:top-28">
             <div className="relative mx-auto max-w-sm">
               <div className="absolute -inset-3 rounded-full border border-gold-500/60" />
-              <SmartImage src="logo" alt={`${school.name} logo`} className="relative aspect-square rounded-full bg-white shadow-xl" imgClassName="!object-contain" variant="light" />
+              <SmartImage src="logo" alt={`${school.name} logo`} className="relative aspect-square rounded-full bg-ivory shadow-xl" imgClassName="!object-contain" variant="light" />
             </div>
-            <p className="mt-10 text-center font-hindi text-2xl text-navy-900">{school.taglineHi}</p>
+            <p className="mt-10 text-center font-hindi text-2xl text-maroon-900">{school.taglineHi}</p>
             <div className="mt-8 grid gap-3">
               {facts.map((f) => (
                 <div key={f.title} className="flex items-start gap-4 rounded-xl bg-cream p-4 ring-1 ring-gold-500/20">
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-navy-900 text-gold-400"><f.icon className="h-5 w-5" /></span>
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-maroon-900 text-gold-400"><f.icon className="h-5 w-5" /></span>
                   <span>
-                    <span className="block font-semibold text-navy-900">{f.title}</span>
+                    <span className="block font-semibold text-maroon-900">{f.title}</span>
                     <span className="block text-sm text-muted">{f.text}</span>
                   </span>
                 </div>
@@ -82,7 +82,7 @@ export default function AboutPage() {
         <SectionHeading eyebrow="Life at Gurukul" title="Moments That" highlight="Shape Us" />
         <PhotoStrip />
         <div className="mt-10 text-center">
-          <Button href="/gallery" variant="navy">View Photo Gallery</Button>
+          <Button href="/gallery" variant="maroon">View Photo Gallery</Button>
         </div>
       </section>
 

@@ -20,24 +20,24 @@ const topLinks = [
 /* Row 0 — slim utility bar (desktop only). */
 function TopBar() {
   return (
-    <div className="hidden bg-navy-950 text-[12px] text-white/70 lg:block">
+    <div className="hidden bg-maroon-900 text-[12px] text-peach/85 lg:block">
       <div className="container-x flex h-9 items-center justify-between gap-6">
         <ul className="flex items-center divide-x divide-white/15">
           {topLinks.map((l) => (
             <li key={l.href} className="px-4 first:pl-0">
-              <Link href={l.href} className="whitespace-nowrap tracking-wide transition hover:text-gold-400">{l.label}</Link>
+              <Link href={l.href} className="whitespace-nowrap tracking-wide transition hover:text-gold-100">{l.label}</Link>
             </li>
           ))}
         </ul>
         <div className="flex items-center gap-6">
           <span className="hidden items-center gap-2 whitespace-nowrap xl:flex">
-            <MapPin className="h-3.5 w-3.5 text-gold-500" /> Gohana Road, Pandu Pindara, Jind (HR)
+            <MapPin className="h-3.5 w-3.5 text-gold-400" /> Gohana Road, Pandu Pindara, Jind (HR)
           </span>
           {activeSocial.length > 0 && <span className="flex items-center gap-3.5 border-white/15 xl:border-l xl:pl-6">
             {activeSocial.map(([k, href]) => {
               const I = socialIconMap[k];
               return (
-                <a key={k} href={href} aria-label={k} className="transition hover:text-gold-400">
+                <a key={k} href={href} aria-label={k} className="transition hover:text-gold-100">
                   <I className="h-3.5 w-3.5" />
                 </a>
               );
@@ -53,12 +53,12 @@ function TopBar() {
 function ContactItem({ icon: Icon, label, value, href }) {
   return (
     <a href={href} className="group flex items-center gap-3">
-      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-gold-500/50 text-gold-500 transition-colors group-hover:bg-navy-900 group-hover:text-gold-400">
+      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-gold-500/50 text-saffron-600 transition-colors group-hover:bg-saffron-600 group-hover:text-ivory">
         <Icon className="h-4 w-4" strokeWidth={1.6} />
       </span>
       <span className="leading-tight">
         <span className="block text-[10.5px] font-semibold uppercase tracking-[0.18em] text-muted">{label}</span>
-        <span className="mt-0.5 block whitespace-nowrap text-sm font-semibold text-navy-900 transition-colors group-hover:text-brand-600">{value}</span>
+        <span className="mt-0.5 block whitespace-nowrap text-sm font-semibold text-maroon-950 transition-colors group-hover:text-saffron-600">{value}</span>
       </span>
     </a>
   );
@@ -68,7 +68,7 @@ function ContactItem({ icon: Icon, label, value, href }) {
 function DesktopNav({ pathname, scrolled }) {
   const [open, setOpen] = useState(null);
   return (
-    <div className={`sticky top-0 z-50 hidden bg-navy-900 xl:block ${scrolled ? "shadow-lg shadow-navy-950/20" : ""}`}>
+    <div className={`sticky top-0 z-50 hidden bg-saffron-600 xl:block ${scrolled ? "shadow-lg shadow-maroon-950/25" : ""}`}>
       <nav className="container-x" aria-label="Main">
         <ul className="flex items-center justify-center">
           {navigation.map((item) => {
@@ -83,7 +83,7 @@ function DesktopNav({ pathname, scrolled }) {
                 <Link
                   href={item.href}
                   className={`group relative flex items-center gap-1.5 whitespace-nowrap px-3.5 py-4 text-[12.5px] font-semibold uppercase tracking-[0.1em] transition-colors 2xl:px-4 ${
-                    active ? "text-gold-400" : "text-white/90 hover:text-gold-400"
+                    active ? "text-gold-100" : "text-white hover:text-gold-100"
                   }`}
                   aria-haspopup={item.children ? "true" : undefined}
                   aria-expanded={item.children ? open === item.label : undefined}
@@ -92,7 +92,7 @@ function DesktopNav({ pathname, scrolled }) {
                   {item.label}
                   {item.children && <ChevronDown className={`h-3 w-3 opacity-70 transition ${open === item.label ? "rotate-180" : ""}`} />}
                   <span
-                    className={`absolute inset-x-3.5 bottom-0 h-0.5 origin-center bg-gold-500 transition-transform duration-300 2xl:inset-x-4 ${
+                    className={`absolute inset-x-3.5 bottom-0 h-[3px] origin-center bg-maroon-900 transition-transform duration-300 2xl:inset-x-4 ${
                       active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                     }`}
                   />
@@ -104,14 +104,14 @@ function DesktopNav({ pathname, scrolled }) {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 6 }}
                       transition={{ duration: 0.18 }}
-                      className="absolute left-0 top-full z-50 min-w-60 border-t-2 border-gold-500 bg-white py-2 shadow-xl shadow-navy-900/15"
+                      className="absolute left-0 top-full z-50 min-w-60 border-t-2 border-gold-500 bg-ivory py-2 shadow-xl shadow-maroon-900/20 ring-1 ring-gold-500/30"
                     >
                       {item.children.map((c) => (
                         <li key={c.label}>
                           <Link
                             href={c.href}
                             onClick={() => setOpen(null)}
-                            className="block border-l-2 border-transparent px-5 py-2.5 text-sm text-navy-800 transition hover:border-brand-600 hover:bg-cream hover:text-brand-600"
+                            className="block border-l-2 border-transparent px-5 py-2.5 text-sm text-maroon-950 transition hover:border-saffron-500 hover:bg-cream hover:text-saffron-600"
                           >
                             {c.label}
                           </Link>
@@ -136,7 +136,7 @@ function MobileNav({ open, onClose }) {
       {open && (
         <>
           <motion.div
-            className="fixed inset-0 z-[60] bg-navy-950/60 xl:hidden"
+            className="fixed inset-0 z-[60] bg-maroon-950/60 xl:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -152,7 +152,7 @@ function MobileNav({ open, onClose }) {
           >
             <div className="flex items-center justify-between border-b border-line p-4">
               <Logo compact />
-              <button onClick={onClose} aria-label="Close menu" className="grid h-10 w-10 place-items-center border border-line text-navy-900">
+              <button onClick={onClose} aria-label="Close menu" className="grid h-10 w-10 place-items-center border border-line text-maroon-900">
                 <X className="h-5 w-5" />
               </button>
             </div>
@@ -162,7 +162,7 @@ function MobileNav({ open, onClose }) {
                   {item.children ? (
                     <>
                       <button
-                        className="flex w-full items-center justify-between py-4 text-left text-sm font-semibold uppercase tracking-wider text-navy-900"
+                        className="flex w-full items-center justify-between py-4 text-left text-sm font-semibold uppercase tracking-wider text-maroon-900"
                         onClick={() => setExpanded(expanded === item.label ? null : item.label)}
                         aria-expanded={expanded === item.label}
                       >
@@ -179,7 +179,7 @@ function MobileNav({ open, onClose }) {
                           >
                             {item.children.map((c) => (
                               <li key={c.label}>
-                                <Link href={c.href} onClick={onClose} className="block py-2 text-sm text-muted hover:text-brand-600">
+                                <Link href={c.href} onClick={onClose} className="block py-2 text-sm text-muted hover:text-saffron-600">
                                   {c.label}
                                 </Link>
                               </li>
@@ -189,7 +189,7 @@ function MobileNav({ open, onClose }) {
                       </AnimatePresence>
                     </>
                   ) : (
-                    <Link href={item.href} onClick={onClose} className="block py-4 text-sm font-semibold uppercase tracking-wider text-navy-900">
+                    <Link href={item.href} onClick={onClose} className="block py-4 text-sm font-semibold uppercase tracking-wider text-maroon-900">
                       {item.label}
                     </Link>
                   )}
@@ -197,18 +197,18 @@ function MobileNav({ open, onClose }) {
               ))}
             </ul>
             <div className="grid gap-2 border-t border-line p-4">
-              <a href={`tel:${primaryContact.tel}`} className="flex items-center justify-center gap-2 py-2 text-sm font-semibold text-navy-900">
+              <a href={`tel:${primaryContact.tel}`} className="flex items-center justify-center gap-2 py-2 text-sm font-semibold text-maroon-900">
                 <PhoneCall className="h-4 w-4 text-gold-500" /> {primaryContact.phone}
               </a>
               <button
                 onClick={() => { onClose(); openEnquiry(); }}
-                className="bg-brand-600 py-3.5 text-[13px] font-semibold uppercase tracking-[0.12em] text-white"
+                className="bg-saffron-600 py-3.5 text-[13px] font-semibold uppercase tracking-[0.12em] text-white"
               >
                 Apply Now — 2027-28
               </button>
               <div className="grid grid-cols-2 gap-2 text-[12px] font-semibold uppercase tracking-wider">
-                <Link href="/mandatory-disclosure" onClick={onClose} className="bg-navy-800 py-3 text-center text-white">Disclosure</Link>
-                <Link href="/parent-login" onClick={onClose} className="border border-navy-800 py-3 text-center text-navy-800">Parent Login</Link>
+                <Link href="/mandatory-disclosure" onClick={onClose} className="bg-maroon-900 py-3 text-center text-white">Disclosure</Link>
+                <Link href="/parent-login" onClick={onClose} className="border border-maroon-900 py-3 text-center text-maroon-900">Parent Login</Link>
               </div>
             </div>
           </motion.aside>
@@ -238,7 +238,7 @@ export default function Header() {
     <>
       <TopBar />
       {/* Row 1 — brand row. Sticky on small screens; static on desktop where the nav bar sticks instead. */}
-      <header className={`sticky top-0 z-50 border-b border-line bg-white xl:static ${scrolled ? "shadow-md shadow-navy-900/5 xl:shadow-none" : ""}`}>
+      <header className={`sticky top-0 z-50 border-b-4 border-saffron-600 bg-ivory xl:border-b-0 xl:static ${scrolled ? "shadow-md shadow-maroon-900/5 xl:shadow-none" : ""}`}>
         <div className="container-x flex h-[76px] items-center justify-between gap-6 lg:h-24">
           <Logo />
           <div className="flex items-center gap-7">
@@ -251,13 +251,13 @@ export default function Header() {
             </div>
             <button
               onClick={openEnquiry}
-              className="hidden whitespace-nowrap bg-brand-600 px-6 py-3.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-brand-700 sm:inline-flex"
+              className="hidden whitespace-nowrap bg-saffron-600 px-6 py-3.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-maroon-900 sm:inline-flex"
             >
               Apply Now
             </button>
             <button
               onClick={() => setMobileOpen(true)}
-              className="grid h-11 w-11 shrink-0 place-items-center border border-navy-800 text-navy-800 xl:hidden"
+              className="grid h-11 w-11 shrink-0 place-items-center border border-maroon-900 text-maroon-900 xl:hidden"
               aria-label="Open menu"
             >
               <Menu className="h-5 w-5" />

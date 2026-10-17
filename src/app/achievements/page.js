@@ -30,9 +30,9 @@ export default function AchievementsPage() {
         <div className="container-x grid grid-cols-2 gap-4 lg:grid-cols-4">
           {banners.map((b, i) => (
             <Reveal key={b.label} delay={i * 0.08}>
-              <div className="flex h-full flex-col rounded-3xl bg-white p-6 shadow-xl shadow-navy-900/10 ring-1 ring-slate-100">
-                <span className="grid h-12 w-12 place-items-center rounded-xl bg-navy-800 text-white"><b.icon className="h-6 w-6" /></span>
-                <p className="mt-4 font-display text-4xl font-bold text-navy-900">{b.value}</p>
+              <div className="flex h-full flex-col rounded-3xl bg-ivory p-6 shadow-xl shadow-maroon-900/10 ring-1 ring-line">
+                <span className="grid h-12 w-12 place-items-center rounded-xl bg-maroon-800 text-white"><b.icon className="h-6 w-6" /></span>
+                <p className="mt-4 font-display text-4xl font-bold text-maroon-900">{b.value}</p>
                 <p className="mt-1 text-sm text-muted">{b.label}</p>
               </div>
             </Reveal>

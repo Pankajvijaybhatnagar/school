@@ -57,12 +57,12 @@ export default function EnquiryForm({ compact = false, onDone }) {
   );
 
   const field = (k) =>
-    `w-full rounded-xl border bg-slate-50 px-4 py-3 text-sm text-navy-900 outline-none transition placeholder:text-slate-400 focus:bg-white focus:ring-4 ${
-      errors[k] ? "border-brand-500 focus:ring-brand-100" : "border-slate-200 focus:border-navy-600 focus:ring-navy-600/10"
+    `w-full rounded-xl border bg-cream px-4 py-3 text-sm text-maroon-900 outline-none transition placeholder:text-muted focus:bg-ivory focus:ring-4 ${
+      errors[k] ? "border-saffron-500 focus:ring-saffron-100" : "border-line focus:border-maroon-600 focus:ring-maroon-600/10"
     }`;
 
   const err = (k) =>
-    errors[k] ? <p className="mt-1 text-xs font-medium text-brand-600">{errors[k]}</p> : null;
+    errors[k] ? <p className="mt-1 text-xs font-medium text-saffron-600">{errors[k]}</p> : null;
 
   return (
     <AnimatePresence mode="wait">
@@ -71,10 +71,10 @@ export default function EnquiryForm({ compact = false, onDone }) {
           key="done"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="flex flex-col items-center rounded-2xl bg-emerald-50 p-8 text-center"
+          className="flex flex-col items-center rounded-2xl bg-leaf-100 p-8 text-center"
         >
-          <CheckCircle2 className="h-16 w-16 text-emerald-500" />
-          <h4 className="mt-4 text-xl font-bold text-navy-900">Thank you, {values.parent.split(" ")[0]}!</h4>
+          <CheckCircle2 className="h-16 w-16 text-leaf-500" />
+          <h4 className="mt-4 text-xl font-bold text-maroon-900">Thank you, {values.parent.split(" ")[0]}!</h4>
           <p className="mt-2 text-sm text-muted">
             Your enquiry for <b>{values.student}</b> ({values.grade}) has been received. Our admission team will contact you shortly.
           </p>
@@ -82,7 +82,7 @@ export default function EnquiryForm({ compact = false, onDone }) {
             href={`https://wa.me/${primaryContact.whatsapp}?text=${whatsappText}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 inline-flex items-center gap-2 rounded-md bg-emerald-500 px-5 py-2.5 text-sm font-bold text-white hover:bg-emerald-600"
+            className="mt-5 inline-flex items-center gap-2 rounded-md bg-leaf-500 px-5 py-2.5 text-sm font-bold text-white hover:bg-maroon-900"
           >
             <WhatsappIcon className="h-4 w-4" /> Also send on WhatsApp
           </a>
@@ -130,14 +130,14 @@ export default function EnquiryForm({ compact = false, onDone }) {
             />
           )}
           {status === "error" && (
-            <p className="text-sm font-medium text-brand-600 sm:col-span-2">
+            <p className="text-sm font-medium text-saffron-600 sm:col-span-2">
               Something went wrong. Please call us at {primaryContact.phone}.
             </p>
           )}
           <button
             type="submit"
             disabled={status === "sending"}
-            className="group inline-flex items-center justify-center gap-2 rounded-md bg-navy-800 px-6 py-3.5 font-bold text-white shadow-lg shadow-navy-900/10 transition hover:-translate-y-0.5 disabled:opacity-70 sm:col-span-2"
+            className="group inline-flex items-center justify-center gap-2 rounded-md bg-maroon-800 px-6 py-3.5 font-bold text-white shadow-lg shadow-maroon-900/10 transition hover:-translate-y-0.5 disabled:opacity-70 sm:col-span-2"
           >
             {status === "sending" ? <Loader2 className="h-5 w-5 animate-spin" /> : <Send className="h-4 w-4 transition group-hover:translate-x-1" />}
             {status === "sending" ? "Submitting..." : "Submit Enquiry"}

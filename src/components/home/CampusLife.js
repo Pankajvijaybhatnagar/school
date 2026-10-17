@@ -16,7 +16,7 @@ const tiles = [
 
 export default function CampusLife() {
   return (
-    <section className="relative overflow-hidden bg-navy-950 py-24 text-white">
+    <section className="relative overflow-hidden bg-maroon-950 py-24 text-white">
       <div className="absolute inset-0 bg-dots opacity-30" />
       <div className="container-x relative">
         <SectionHeading light eyebrow="Campus Life" title="Where Learning" highlight="Comes Alive" text="A glimpse of everyday life on the Sigma Vidya Kunj campus — labs, library, playgrounds and celebrations." />
@@ -25,7 +25,7 @@ export default function CampusLife() {
             <Reveal key={t.title} delay={(i % 3) * 0.08} className={t.span || ""}>
               <Link href={t.href} className="group relative block h-full overflow-hidden rounded-2xl ring-1 ring-white/10">
                 <SmartImage src={photo(t.image)} alt={t.title} label={t.title} className="absolute inset-0 transition duration-[1200ms] ease-out group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-950/30 to-transparent transition duration-500 group-hover:from-navy-950" />
+                <div className="absolute inset-0 bg-gradient-to-t from-maroon-950/95 via-maroon-950/30 to-transparent transition duration-500 group-hover:from-maroon-950" />
                 <div className="absolute inset-x-0 bottom-0 p-6">
                   <span className="mb-3 block h-0.5 w-10 bg-gold-500 transition-all duration-500 group-hover:w-20" />
                   <h3 className="text-2xl font-semibold leading-tight">{t.title}</h3>

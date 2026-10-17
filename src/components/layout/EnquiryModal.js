@@ -30,7 +30,7 @@ export default function EnquiryModal() {
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-[80] flex items-center justify-center overflow-y-auto bg-navy-950/70 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[80] flex items-center justify-center overflow-y-auto bg-maroon-950/70 p-4 backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -40,7 +40,7 @@ export default function EnquiryModal() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="enquiry-title"
-            className="relative my-8 grid w-full max-w-4xl overflow-hidden rounded-3xl bg-white shadow-xl md:grid-cols-5"
+            className="relative my-8 grid w-full max-w-4xl overflow-hidden rounded-3xl bg-ivory shadow-xl md:grid-cols-5"
             initial={{ scale: 0.92, y: 30 }}
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.95, y: 20 }}
@@ -50,7 +50,7 @@ export default function EnquiryModal() {
             <div className="relative hidden overflow-hidden bg-mesh p-8 text-white md:col-span-2 md:block">
               <div className="absolute inset-0 bg-dots opacity-50" />
               <div className="relative">
-                <span className="inline-flex items-center gap-2 rounded-md bg-gold-500 px-3 py-1 text-xs font-bold uppercase text-navy-950">
+                <span className="inline-flex items-center gap-2 rounded-md bg-gold-500 px-3 py-1 text-xs font-bold uppercase text-maroon-950">
                   <Sparkles className="h-3.5 w-3.5" /> Admissions Open
                 </span>
                 <h3 className="mt-5 text-3xl font-semibold leading-tight">
@@ -71,12 +71,12 @@ export default function EnquiryModal() {
             <div className="p-6 sm:p-8 md:col-span-3">
               <button
                 onClick={() => setOpen(false)}
-                className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-slate-100 text-navy-900 transition hover:rotate-90 hover:bg-brand-600 hover:text-white"
+                className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-cream text-maroon-900 transition hover:rotate-90 hover:bg-saffron-600 hover:text-white"
                 aria-label="Close"
               >
                 <X className="h-5 w-5" />
               </button>
-              <h3 id="enquiry-title" className="text-2xl font-semibold text-navy-900">Admission Enquiry</h3>
+              <h3 id="enquiry-title" className="text-2xl font-semibold text-maroon-900">Admission Enquiry</h3>
               <p className="mb-6 mt-1 text-sm text-muted">Fill in the details and our admission team will call you back.</p>
               <EnquiryForm compact onDone={() => setTimeout(() => setOpen(false), 2500)} />
             </div>

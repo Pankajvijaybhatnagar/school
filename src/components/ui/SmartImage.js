@@ -5,9 +5,9 @@ import { ImageIcon } from "lucide-react";
 import { images } from "@/data/images";
 
 const tones = {
-  navy: "from-navy-800 to-navy-950",
+  maroon: "from-maroon-800 to-maroon-950",
   red: "from-cream to-gold-100",
-  gold: "from-[#efe9de] to-[#ddd2bf]",
+  gold: "from-gold-100 to-gold-400",
   light: "from-cream to-gold-100",
 };
 
@@ -19,7 +19,7 @@ export default function SmartImage({
   className = "",
   imgClassName = "",
   label,
-  variant = "navy",
+  variant = "maroon",
   priority = false,
 }) {
   const resolved = images[src] || src;
@@ -32,7 +32,7 @@ export default function SmartImage({
     if (img && img.complete && img.naturalWidth === 0) setFailed(true);
   }, []);
 
-  const light = variant !== "navy";
+  const light = variant !== "maroon";
   // Callers may position the wrapper themselves (e.g. "absolute inset-0").
   const positioned = /(^|\s)(absolute|fixed|sticky)(\s|$)/.test(className);
 
@@ -42,14 +42,14 @@ export default function SmartImage({
         <div
           role="img"
           aria-label={alt || label || "Image placeholder"}
-          className={`absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gradient-to-br ${tones[variant] || tones.navy}`}
+          className={`absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gradient-to-br ${tones[variant] || tones.maroon}`}
         >
           <div className="absolute inset-0 bg-dots" />
           <span className={`absolute inset-3 border ${light ? "border-gold-500/30" : "border-gold-400/20"}`} />
           {label && (
             <>
               <ImageIcon className={`relative h-7 w-7 ${light ? "text-gold-500/60" : "text-gold-400/60"}`} />
-              <span className={`relative max-w-[85%] text-center font-serif text-sm italic ${light ? "text-navy-700/70" : "text-white/70"}`}>
+              <span className={`relative max-w-[85%] text-center font-serif text-sm italic ${light ? "text-maroon-700/70" : "text-white/70"}`}>
                 {label}
               </span>
             </>

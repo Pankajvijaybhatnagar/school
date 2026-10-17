@@ -38,12 +38,12 @@ export default function Home() {
       </section>
 
       {/* Logo & motto */}
-      <section className="bg-white py-24">
+      <section className="bg-ivory py-24">
         <div className="container-x">
           <SectionHeading eyebrow="Our Logo" title="Sun, Conch, Lamp &" highlight="Lotus" />
           <LogoMeaning />
           <div className="mt-12 text-center">
-            <Button href="/about#logo" variant="navy">Read the Full Meaning <ArrowRight className="h-4 w-4" /></Button>
+            <Button href="/about#logo" variant="maroon">Read the Full Meaning <ArrowRight className="h-4 w-4" /></Button>
           </div>
         </div>
       </section>
@@ -60,7 +60,7 @@ export default function Home() {
       </section>
 
       {/* History */}
-      <section className="relative overflow-hidden bg-navy-950 py-24 text-white">
+      <section className="relative overflow-hidden bg-maroon-950 py-24 text-white">
         <div className="absolute inset-0 bg-dots opacity-30" />
         <div className="container-x relative">
           <SectionHeading light eyebrow="Our History" title="A Legacy Since" highlight="1968" text="From Shri Lajja Ram Sanskrit Mahavidyalaya in the Rishikul tradition to a CBSE Senior Secondary school offering modern education with sanskaras." />
@@ -77,7 +77,7 @@ export default function Home() {
           <SectionHeading eyebrow="Our Gallery" title="Life in" highlight="Pictures" />
           <GalleryGrid items={featuredGallery} limit={10} filters={false} layout="bento" />
           <div className="mt-10 text-center">
-            <Link href="/gallery" className="inline-flex items-center gap-2 font-bold text-brand-600 hover:gap-3">
+            <Link href="/gallery" className="inline-flex items-center gap-2 font-bold text-saffron-600 hover:gap-3">
               View Full Gallery <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
