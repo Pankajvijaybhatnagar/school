@@ -24,7 +24,7 @@ function TopBar() {
       <div className="container-x flex h-9 items-center justify-between gap-6">
         <ul className="flex items-center divide-x divide-white/15">
           {topLinks.map((l) => (
-            <li key={l.href} className="px-4 first:pl-0">
+            <li key={l.label} className="px-4 first:pl-0">
               <Link href={l.href} className="whitespace-nowrap tracking-wide transition hover:text-gold-100">{l.label}</Link>
             </li>
           ))}
