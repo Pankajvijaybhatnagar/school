@@ -70,7 +70,7 @@ const slides = [
     key: "legacy",
     tab: "Our Legacy",
     bg: photo("havan"),
-    image: photo("dance-stage-2"),
+    image: photo("havan-3"),
     icon: Landmark,
     eyebrow: "Rishikul Tradition Since 1968",
     title: (
