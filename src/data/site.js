@@ -99,7 +99,7 @@ export const chairman = {
 export const viceChairman = {
   name: "Dr. Kanta Sharma",
   nameHi: "डाॅ. कान्ता शर्मा",
-  role: "Vice Chairman",
+  role: "vice chairperson ",
   image: "viceChairman",
   portrait: "viceChairman",
   messageTitle: "शिक्षा का महत्व एवं उद्देश्य",
@@ -363,7 +363,7 @@ export const navigation = [
       { label: "Our History", href: "/about#history" },
       { label: "Our Logo & Motto", href: "/about#logo" },
       { label: "Chairman's Message", href: "/about#chairman" },
-      { label: "Vice Chairman's Message", href: "/about#vice-chairman" },
+      { label: "vice chairperson 's Message", href: "/about#vice-chairman" },
       { label: "Principal", href: "/faculty#principal" },
     ],
   },

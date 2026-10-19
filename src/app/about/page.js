@@ -75,7 +75,7 @@ export default function AboutPage() {
       </section>
 
       <LeaderMessage person={chairman} id="chairman" eyebrow="From the Chairman's Desk" full />
-      <LeaderMessage person={viceChairman} id="vice-chairman" eyebrow="From the Vice Chairman's Desk" full flip tone="white" />
+      <LeaderMessage person={viceChairman} id="vice-chairman" eyebrow="From the vice chairperson 's Desk" full flip tone="white" />
 
       {/* Life at Gurukul */}
       <section className="py-20">
